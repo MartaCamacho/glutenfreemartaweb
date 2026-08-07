@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "title": "Glutenfreemarta — La vida sense gluten, explicada tal com és",
+    "description": "Celíaca des del 2018. Mare. Programadora. Aquí parlo de celiaquia sense tecnicismes ni mitges tintes, amb la barreja justa d'utilitat i fartada."
+  },
+  "nav": {
+    "about": "Sobre mi",
+    "lab": "CeroGluten Lab",
+    "contact": "Contacte",
+    "instagram": "Instagram →",
+    "openMenu": "Obrir menú",
+    "closeMenu": "Tancar menú",
+    "language": "Idioma"
+  },
+  "footer": {
+    "tagline": "Celíaca des del 2018. Mare. Programadora. La vida sense gluten explicada tal com és.",
+    "explore": "Explora",
+    "follow": "Segueix-me",
+    "instagram": "Instagram",
+    "copyright": "© 2026 Glutenfreemarta"
+  }
+}

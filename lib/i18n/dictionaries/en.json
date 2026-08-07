@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "title": "Glutenfreemarta — Gluten-free life, told exactly as it is",
+    "description": "Coeliac since 2018. Mother. Programmer. Here I talk about coeliac disease with no jargon and no sugar-coating, with just the right mix of useful and fed up."
+  },
+  "nav": {
+    "about": "About me",
+    "lab": "CeroGluten Lab",
+    "contact": "Contact",
+    "instagram": "Instagram →",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "language": "Language"
+  },
+  "footer": {
+    "tagline": "Coeliac since 2018. Mother. Programmer. Gluten-free life told exactly as it is.",
+    "explore": "Explore",
+    "follow": "Follow me",
+    "instagram": "Instagram",
+    "copyright": "© 2026 Glutenfreemarta"
+  }
+}

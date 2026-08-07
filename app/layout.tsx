@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Bricolage_Grotesque, Plus_Jakarta_Sans } from "next/font/google";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import { getDictionary, getLocale } from "@/lib/i18n/server";
 import "./globals.css";
 
 const bricolage = Bricolage_Grotesque({
@@ -16,25 +17,26 @@ const jakarta = Plus_Jakarta_Sans({
   variable: "--font-jakarta",
 });
 
-export const metadata: Metadata = {
-  title: {
-    default: "Glutenfreemarta — La vida sin gluten, contada tal cual es",
-    template: "%s · Glutenfreemarta",
-  },
-  description:
-    "Celíaca desde 2018. Madre. Programadora. Aquí hablo de celiaquía sin tecnicismos ni paños calientes, con la mezcla justa de utilidad y hartazgo.",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const { meta } = await getDictionary();
+  return {
+    title: { default: meta.title, template: "%s · Glutenfreemarta" },
+    description: meta.description,
+  };
+}
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default async function RootLayout({ children }: LayoutProps<"/">) {
+  const [locale, dict] = await Promise.all([getLocale(), getDictionary()]);
+
   return (
     <html
-      lang="es"
+      lang={locale}
       className={`${bricolage.variable} ${jakarta.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <Nav />
+        <Nav dict={dict.nav} locale={locale} />
         <main className="flex-1">{children}</main>
-        <Footer />
+        <Footer dict={dict.footer} navDict={dict.nav} />
       </body>
     </html>
   );

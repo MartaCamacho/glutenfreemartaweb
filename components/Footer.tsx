@@ -1,7 +1,20 @@
 import Link from "next/link";
-import { INSTAGRAM_URL, NAV_LINKS } from "@/lib/site";
+import type { Dictionary } from "@/lib/i18n/server";
+import { INSTAGRAM_URL, ROUTES } from "@/lib/site";
 
-export default function Footer() {
+export default function Footer({
+  dict,
+  navDict,
+}: {
+  dict: Dictionary["footer"];
+  navDict: Dictionary["nav"];
+}) {
+  const links = [
+    { href: ROUTES.about, label: navDict.about },
+    { href: ROUTES.lab, label: navDict.lab },
+    { href: ROUTES.contact, label: navDict.contact },
+  ];
+
   return (
     <footer className="bg-ink px-[6%] pb-10 pt-15 text-footer-fg">
       <div className="mx-auto flex max-w-[1400px] flex-wrap justify-between gap-10">
@@ -10,15 +23,14 @@ export default function Footer() {
             glutenfreemarta
           </p>
           <p className="max-w-[320px] text-sm leading-relaxed text-footer-dim">
-            Celíaca desde 2018. Madre. Programadora. La vida sin gluten contada
-            tal cual es.
+            {dict.tagline}
           </p>
         </div>
 
         <div className="flex flex-wrap gap-15">
           <div className="flex flex-col gap-2.5 text-[15px]">
-            <span className="mb-1 font-bold text-white">Explora</span>
-            {NAV_LINKS.map((link) => (
+            <span className="mb-1 font-bold text-white">{dict.explore}</span>
+            {links.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
@@ -29,21 +41,21 @@ export default function Footer() {
             ))}
           </div>
           <div className="flex flex-col gap-2.5 text-[15px]">
-            <span className="mb-1 font-bold text-white">Sígueme</span>
+            <span className="mb-1 font-bold text-white">{dict.follow}</span>
             <a
               href={INSTAGRAM_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="text-footer-link transition-colors hover:text-white"
             >
-              Instagram
+              {dict.instagram}
             </a>
           </div>
         </div>
       </div>
 
       <p className="mt-[50px] text-center text-[13px] text-footer-copy">
-        © 2026 Glutenfreemarta
+        {dict.copyright}
       </p>
     </footer>
   );

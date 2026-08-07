@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "title": "Glutenfreemarta — La vida sin gluten, contada tal cual es",
+    "description": "Celíaca desde 2018. Madre. Programadora. Aquí hablo de celiaquía sin tecnicismos ni paños calientes, con la mezcla justa de utilidad y hartazgo."
+  },
+  "nav": {
+    "about": "Sobre mí",
+    "lab": "CeroGluten Lab",
+    "contact": "Contacto",
+    "instagram": "Instagram →",
+    "openMenu": "Abrir menú",
+    "closeMenu": "Cerrar menú",
+    "language": "Idioma"
+  },
+  "footer": {
+    "tagline": "Celíaca desde 2018. Madre. Programadora. La vida sin gluten contada tal cual es.",
+    "explore": "Explora",
+    "follow": "Sígueme",
+    "instagram": "Instagram",
+    "copyright": "© 2026 Glutenfreemarta"
+  }
+}
