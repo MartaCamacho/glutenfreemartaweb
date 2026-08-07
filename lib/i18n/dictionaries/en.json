@@ -99,5 +99,40 @@
       "title": "Why the sarcastic tone?",
       "body": "Because real coeliac disease isn't just \"eating healthy\". It's explaining for the hundredth time what a trace is, it's not being able to improvise a plan, it's sometimes feeling like the awkward one at the table. I'd rather laugh at that than let it define me. You won't find medical jargon here — that's what your doctor is for — but what living gluten-free is actually like."
     }
+  },
+  "lab": {
+    "meta": {
+      "title": "CeroGluten Lab",
+      "description": "Learn about coeliac disease without the boring manuals. The @glutenfreemarta app."
+    },
+    "hero": {
+      "eyebrow": "The app",
+      "headline": "CeroGluten Lab",
+      "body": "Learn about coeliac disease without the boring manuals. Everything I share on @glutenfreemarta, turned into a format that helps you really understand what's happening to you, what you can eat and how to handle \"may contain traces\".",
+      "appStore": "Download on the App Store",
+      "googlePlay": "Get it on Google Play"
+    },
+    "features": {
+      "eyebrow": "What you'll find",
+      "title": "Everything I wish I'd known in 2018",
+      "items": [
+        {
+          "title": "Clear lessons",
+          "body": "What coeliac disease is, what traces are and why they matter, explained without the white coat."
+        },
+        {
+          "title": "Everyday situations",
+          "body": "Restaurants, trips, birthdays: real situations and how to handle them without the drama."
+        },
+        {
+          "title": "Progress at your pace",
+          "body": "Bite-sized content, to learn a little every day without it feeling like homework."
+        }
+      ]
+    },
+    "cta": {
+      "title": "Already got it? Tell me what you think on Instagram.",
+      "button": "@glutenfreemarta"
+    }
   }
 }

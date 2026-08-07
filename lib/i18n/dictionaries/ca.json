@@ -99,5 +99,40 @@
       "title": "Per què el to sarcàstic?",
       "body": "Perquè la celiaquia real no és només \"menjar sa\". És explicar per enèsima vegada què és una traça, és no poder improvisar un pla, és a vegades sentir-te la pesada de la taula. Prefereixo riure'm d'això que no pas que em defineixi. Aquí no hi trobaràs tecnicismes mèdics — per això hi ha el teu metge — sinó com es viu, de debò, sense gluten."
     }
+  },
+  "lab": {
+    "meta": {
+      "title": "CeroGluten Lab",
+      "description": "Aprèn sobre celiaquia sense manuals avorrits. L'app de @glutenfreemarta."
+    },
+    "hero": {
+      "eyebrow": "L'app",
+      "headline": "CeroGluten Lab",
+      "body": "Aprèn sobre celiaquia sense manuals avorrits. Tot el que explico a @glutenfreemarta, portat a un format per entendre de debò què et passa, què pots menjar i com defensar-te del \"pot contenir traces\".",
+      "appStore": "Descarrega a l'App Store",
+      "googlePlay": "Descarrega a Google Play"
+    },
+    "features": {
+      "eyebrow": "Què hi trobaràs",
+      "title": "Tot el que m'hauria agradat saber el 2018",
+      "items": [
+        {
+          "title": "Lliçons clares",
+          "body": "Què és la celiaquia, què són les traces i per què importen, explicat sense bata blanca."
+        },
+        {
+          "title": "Casos del dia a dia",
+          "body": "Restaurants, viatges, aniversaris: situacions reals i com resoldre-les sense drames."
+        },
+        {
+          "title": "Progrés al teu ritme",
+          "body": "Contingut en píndoles, per aprendre una mica cada dia sense sentir que són deures."
+        }
+      ]
+    },
+    "cta": {
+      "title": "Ja la tens? Explica'm què et sembla per Instagram.",
+      "button": "@glutenfreemarta"
+    }
   }
 }

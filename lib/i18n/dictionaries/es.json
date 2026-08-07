@@ -99,5 +99,40 @@
       "title": "¿Por qué el tono sarcástico?",
       "body": "Porque la celiaquía real no es solo \"comer sano\". Es explicar por enésima vez qué es una traza, es no poder improvisar un plan, es a veces sentirte la pesada de la mesa. Prefiero reírme de eso a que me defina. Aquí no vas a encontrar tecnicismos médicos — para eso está tu médico — sino cómo se vive, de verdad, sin gluten."
     }
+  },
+  "lab": {
+    "meta": {
+      "title": "CeroGluten Lab",
+      "description": "Aprende sobre celiaquía sin manuales aburridos. La app de @glutenfreemarta."
+    },
+    "hero": {
+      "eyebrow": "La app",
+      "headline": "CeroGluten Lab",
+      "body": "Aprende sobre celiaquía sin manuales aburridos. Todo lo que cuento en @glutenfreemarta, llevado a un formato para entender de verdad qué te pasa, qué puedes comer y cómo defenderte del \"puede contener trazas\".",
+      "appStore": "Descargar en App Store",
+      "googlePlay": "Descargar en Google Play"
+    },
+    "features": {
+      "eyebrow": "Qué encontrarás",
+      "title": "Todo lo que me hubiese gustado saber en 2018",
+      "items": [
+        {
+          "title": "Lecciones claras",
+          "body": "Qué es la celiaquía, qué son las trazas y por qué importan, explicado sin bata blanca."
+        },
+        {
+          "title": "Casos del día a día",
+          "body": "Restaurantes, viajes, cumpleaños: situaciones reales y cómo resolverlas sin dramas."
+        },
+        {
+          "title": "Progreso a tu ritmo",
+          "body": "Contenido en píldoras, para aprender un poco cada día sin sentir que es deberes."
+        }
+      ]
+    },
+    "cta": {
+      "title": "¿Ya la tienes? Cuéntame qué te parece por Instagram.",
+      "button": "@glutenfreemarta"
+    }
   }
 }
