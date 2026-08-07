@@ -18,5 +18,56 @@
     "follow": "Follow me",
     "instagram": "Instagram",
     "copyright": "© 2026 Glutenfreemarta"
+  },
+  "home": {
+    "hero": {
+      "eyebrow": "Coeliac since 2018 🌾",
+      "headline": "Gluten-free life,\ntold exactly as it is.",
+      "body": "Mother. Programmer. And for a few years now, an involuntary expert in reading labels. Here I talk about coeliac disease with no jargon and no sugar-coating — with just the right mix of useful and fed up that comes from asking \"does this contain traces?\" in every single restaurant.",
+      "ctaInstagram": "Follow me on @glutenfreemarta",
+      "ctaLab": "Discover CeroGluten Lab",
+      "imageAlt": "Marta, illustration"
+    },
+    "about": {
+      "eyebrow": "Who I am",
+      "title": "From programmer to accidental advocate.",
+      "body": "I was diagnosed with coeliac disease in 2018 and found out nobody explains what living with it is actually like: the packed lunch at every plan, the interrogation over every menu, and that feeling of being \"the difficult one\" in the group. I started posting about it on Instagram with humour because, if I don't laugh, nobody does.",
+      "link": "Read my full story →",
+      "imageAlt": "Marta looking puzzled"
+    },
+    "feed": {
+      "eyebrow": "From the feed",
+      "title": "What's cooking on @glutenfreemarta",
+      "link": "See full profile →",
+      "posts": [
+        {
+          "tag": "Reel",
+          "title": "\"So bloody done with gluten-free but may contain traces\"",
+          "note": "A classic of labels that tell you nothing."
+        },
+        {
+          "tag": "Guide",
+          "title": "5 things I pack to cook gluten-free in an Airbnb",
+          "note": "Spoiler: the non-stick pan is non-negotiable."
+        },
+        {
+          "tag": "Reel",
+          "title": "Mercadona's gluten-free breads, tried and judged",
+          "note": "From \"this tastes like cardboard\" to \"I'm taking it home\"."
+        },
+        {
+          "tag": "Rant",
+          "title": "Barbecue day, with my own lunchbox",
+          "note": "Yes, I was \"the odd one\" with the lunchbox again."
+        }
+      ],
+      "disclaimer": "Sample posts — connect your real Instagram feed to show them live."
+    },
+    "lab": {
+      "eyebrow": "The app",
+      "title": "CeroGluten Lab: learn about coeliac disease without the boredom",
+      "body": "The app that takes everything I share here one step further: clear content about coeliac disease, without the fear and without reading like a medical manual.",
+      "cta": "See the app →"
+    }
   }
 }

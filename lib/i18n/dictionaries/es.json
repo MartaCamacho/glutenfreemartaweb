@@ -18,5 +18,56 @@
     "follow": "Sígueme",
     "instagram": "Instagram",
     "copyright": "© 2026 Glutenfreemarta"
+  },
+  "home": {
+    "hero": {
+      "eyebrow": "Celíaca desde 2018 🌾",
+      "headline": "La vida sin gluten,\ncontada tal cual es.",
+      "body": "Madre. Programadora. Y desde hace unos años, una experta involuntaria en leer etiquetas. Aquí hablo de celiaquía sin tecnicismos ni paños calientes — con la mezcla justa de utilidad y hartazgo que da tener que preguntar \"¿esto lleva trazas?\" en cada restaurante.",
+      "ctaInstagram": "Sígueme en @glutenfreemarta",
+      "ctaLab": "Descubre CeroGluten Lab",
+      "imageAlt": "Marta, ilustración"
+    },
+    "about": {
+      "eyebrow": "Quién soy",
+      "title": "De programadora a divulgadora sin querer.",
+      "body": "Me diagnosticaron celiaquía en 2018 y descubrí que nadie te explica cómo se vive de verdad: los tuppers en cada plan, el interrogatorio en cada carta, y esa sensación de ser \"la pesada\" del grupo. Empecé a contarlo en Instagram con humor porque, si no me río yo, no se ríe nadie.",
+      "link": "Leer mi historia completa →",
+      "imageAlt": "Marta con cara de duda"
+    },
+    "feed": {
+      "eyebrow": "Del feed",
+      "title": "Lo que se cuece en @glutenfreemarta",
+      "link": "Ver perfil completo →",
+      "posts": [
+        {
+          "tag": "Reel",
+          "title": "\"Hasta el c*ño del sin gluten pero puede contener trazas\"",
+          "note": "Un clásico de las etiquetas que no dicen nada."
+        },
+        {
+          "tag": "Guía",
+          "title": "5 cosas que llevo para cocinar sin gluten en un Airbnb",
+          "note": "Spoiler: la sartén de teflón va sí o sí."
+        },
+        {
+          "tag": "Reel",
+          "title": "Los panes sin gluten de Mercadona, probados y juzgados",
+          "note": "Del \"esto sabe a cartón\" al \"me lo llevo a casa\"."
+        },
+        {
+          "tag": "Desahogo",
+          "title": "El día de la barbacoa con tupper propio",
+          "note": "Sí, otra vez fui \"la rara\" del tupper."
+        }
+      ],
+      "disclaimer": "Publicaciones de ejemplo — conecta tu feed de Instagram real para mostrarlas en vivo."
+    },
+    "lab": {
+      "eyebrow": "La app",
+      "title": "CeroGluten Lab: aprende celiaquía sin aburrirte",
+      "body": "La app que lleva a otro nivel todo lo que cuento por aquí: contenido claro sobre celiaquía, sin miedo y sin ser un manual médico.",
+      "cta": "Ver la app →"
+    }
   }
 }

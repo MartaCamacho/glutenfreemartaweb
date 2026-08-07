@@ -18,5 +18,56 @@
     "follow": "Segueix-me",
     "instagram": "Instagram",
     "copyright": "© 2026 Glutenfreemarta"
+  },
+  "home": {
+    "hero": {
+      "eyebrow": "Celíaca des del 2018 🌾",
+      "headline": "La vida sense gluten,\nexplicada tal com és.",
+      "body": "Mare. Programadora. I des de fa uns anys, una experta involuntària a llegir etiquetes. Aquí parlo de celiaquia sense tecnicismes ni mitges tintes — amb la barreja justa d'utilitat i fartada que dona haver de preguntar \"això porta traces?\" a cada restaurant.",
+      "ctaInstagram": "Segueix-me a @glutenfreemarta",
+      "ctaLab": "Descobreix CeroGluten Lab",
+      "imageAlt": "Marta, il·lustració"
+    },
+    "about": {
+      "eyebrow": "Qui soc",
+      "title": "De programadora a divulgadora sense voler.",
+      "body": "Em van diagnosticar celiaquia el 2018 i vaig descobrir que ningú t'explica com es viu de debò: les carmanyoles a cada pla, l'interrogatori a cada carta, i aquella sensació de ser \"la pesada\" del grup. Vaig començar a explicar-ho a Instagram amb humor perquè, si no ric jo, no riu ningú.",
+      "link": "Llegeix la meva història completa →",
+      "imageAlt": "Marta amb cara de dubte"
+    },
+    "feed": {
+      "eyebrow": "Del feed",
+      "title": "Què es cou a @glutenfreemarta",
+      "link": "Veure el perfil complet →",
+      "posts": [
+        {
+          "tag": "Reel",
+          "title": "\"Fins als nassos del sense gluten però pot contenir traces\"",
+          "note": "Un clàssic de les etiquetes que no diuen res."
+        },
+        {
+          "tag": "Guia",
+          "title": "5 coses que porto per cuinar sense gluten en un Airbnb",
+          "note": "Spoiler: la paella antiadherent hi va sí o sí."
+        },
+        {
+          "tag": "Reel",
+          "title": "Els pans sense gluten del Mercadona, provats i jutjats",
+          "note": "Del \"això sap a cartró\" al \"me'l enduc a casa\"."
+        },
+        {
+          "tag": "Desfogada",
+          "title": "El dia de la barbacoa amb carmanyola pròpia",
+          "note": "Sí, un altre cop vaig ser \"la rara\" de la carmanyola."
+        }
+      ],
+      "disclaimer": "Publicacions d'exemple — connecta el teu feed d'Instagram real per mostrar-les en directe."
+    },
+    "lab": {
+      "eyebrow": "L'app",
+      "title": "CeroGluten Lab: aprèn sobre celiaquia sense avorrir-te",
+      "body": "L'app que porta a un altre nivell tot el que explico per aquí: contingut clar sobre celiaquia, sense por i sense ser un manual mèdic.",
+      "cta": "Veure l'app →"
+    }
   }
 }
