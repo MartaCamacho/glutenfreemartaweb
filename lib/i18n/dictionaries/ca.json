@@ -134,5 +134,34 @@
       "title": "Ja la tens? Explica'm què et sembla per Instagram.",
       "button": "@glutenfreemarta"
     }
+  },
+  "contact": {
+    "meta": {
+      "title": "Contacte",
+      "description": "Marques, mitjans, o simplement algú que també està fart de llegir etiquetes: escriu-me."
+    },
+    "eyebrow": "Contacte",
+    "headline": "Col·laborem, o només vols saludar?",
+    "intro": "Marques, mitjans, o simplement algú que també està fart de llegir etiquetes: escriu-me.",
+    "form": {
+      "name": "Nom",
+      "namePlaceholder": "El teu nom",
+      "email": "Email",
+      "emailPlaceholder": "tu@email.com",
+      "message": "Missatge",
+      "messagePlaceholder": "Explica'm...",
+      "submit": "Enviar missatge",
+      "hint": "En enviar s'obrirà el teu gestor de correu amb el missatge a punt.",
+      "openedTitle": "Hem obert el teu gestor de correu amb el missatge a punt.",
+      "openedBody": "No s'ha obert res? Copia el missatge i envia'l a",
+      "copy": "Copiar missatge",
+      "copied": "Copiat!",
+      "subject": "Missatge des del web de"
+    },
+    "cards": {
+      "instagram": "Instagram",
+      "email": "Email",
+      "note": "Responc jo, sense equip de community management ni respostes automàtiques estranyes. Pot ser que trigui un o dos dies — soc mare, celíaca i programadora, en aquest ordre segons el dia."
+    }
   }
 }

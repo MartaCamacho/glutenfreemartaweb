@@ -134,5 +134,34 @@
       "title": "¿Ya la tienes? Cuéntame qué te parece por Instagram.",
       "button": "@glutenfreemarta"
     }
+  },
+  "contact": {
+    "meta": {
+      "title": "Contacto",
+      "description": "Marcas, medios, o simplemente alguien que también está harto de leer etiquetas: escríbeme."
+    },
+    "eyebrow": "Contacto",
+    "headline": "¿Colaboramos, o solo quieres saludar?",
+    "intro": "Marcas, medios, o simplemente alguien que también está harto de leer etiquetas: escríbeme.",
+    "form": {
+      "name": "Nombre",
+      "namePlaceholder": "Tu nombre",
+      "email": "Email",
+      "emailPlaceholder": "tu@email.com",
+      "message": "Mensaje",
+      "messagePlaceholder": "Cuéntame...",
+      "submit": "Enviar mensaje",
+      "hint": "Al enviar se abrirá tu gestor de correo con el mensaje listo.",
+      "openedTitle": "Hemos abierto tu gestor de correo con el mensaje listo.",
+      "openedBody": "¿No se ha abierto nada? Copia el mensaje y mándamelo a",
+      "copy": "Copiar mensaje",
+      "copied": "¡Copiado!",
+      "subject": "Mensaje desde la web de"
+    },
+    "cards": {
+      "instagram": "Instagram",
+      "email": "Email",
+      "note": "Respondo yo, sin equipo de community management ni respuestas automáticas raras. Puede que tarde uno o dos días — soy madre, celíaca y programadora, en ese orden según el día."
+    }
   }
 }

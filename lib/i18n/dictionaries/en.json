@@ -134,5 +134,34 @@
       "title": "Already got it? Tell me what you think on Instagram.",
       "button": "@glutenfreemarta"
     }
+  },
+  "contact": {
+    "meta": {
+      "title": "Contact",
+      "description": "Brands, media, or just someone who's also fed up with reading labels: write to me."
+    },
+    "eyebrow": "Contact",
+    "headline": "Shall we work together, or do you just want to say hi?",
+    "intro": "Brands, media, or just someone who's also fed up with reading labels: write to me.",
+    "form": {
+      "name": "Name",
+      "namePlaceholder": "Your name",
+      "email": "Email",
+      "emailPlaceholder": "you@email.com",
+      "message": "Message",
+      "messagePlaceholder": "Tell me...",
+      "submit": "Send message",
+      "hint": "Sending will open your email app with the message ready to go.",
+      "openedTitle": "We've opened your email app with the message ready.",
+      "openedBody": "Nothing opened? Copy the message and send it to",
+      "copy": "Copy message",
+      "copied": "Copied!",
+      "subject": "Message from the website of"
+    },
+    "cards": {
+      "instagram": "Instagram",
+      "email": "Email",
+      "note": "I reply myself, with no community management team and no weird automated replies. It might take me a day or two — I'm a mother, a coeliac and a programmer, in that order depending on the day."
+    }
   }
 }
