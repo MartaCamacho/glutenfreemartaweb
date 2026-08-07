@@ -69,5 +69,35 @@
       "body": "L'app que porta a un altre nivell tot el que explico per aquí: contingut clar sobre celiaquia, sense por i sense ser un manual mèdic.",
       "cta": "Veure l'app →"
     }
+  },
+  "about": {
+    "meta": {
+      "title": "Sobre mi",
+      "description": "Soc la Marta. Celíaca, mare i programadora, en aquest ordre segons el dia. Diagnosticada el 2018, això és el que vaig aprendre pel camí."
+    },
+    "hero": {
+      "eyebrow": "Sobre mi",
+      "headline": "Soc la Marta. Celíaca, mare i programadora, en aquest ordre segons el dia.",
+      "body": "Diagnosticada el 2018, d'un dia per l'altre vaig passar de menjar el que em donava la gana a llegir etiquetes com si fos un idioma nou. Això és el que vaig aprendre pel camí — i el que continuo aprenent.",
+      "imageAlt": "Marta il·lustrada"
+    },
+    "timeline": [
+      {
+        "year": "2018",
+        "text": "Diagnòstic de celiaquia. El principi d'un curs intensiu a \"llegir la lletra petita de tot\"."
+      },
+      {
+        "year": "2020",
+        "text": "Començo a explicar a Instagram el que ningú explica: la carmanyola a la motxilla, l'interrogatori a cada bar, i la part de riure que també hi ha en tot això."
+      },
+      {
+        "year": "Avui",
+        "text": "@glutenfreemarta creix amb reels, guies pràctiques i una comunitat que també està farta però riu amb mi. I ara, amb CeroGluten Lab, portant tot això un pas més enllà."
+      }
+    ],
+    "tone": {
+      "title": "Per què el to sarcàstic?",
+      "body": "Perquè la celiaquia real no és només \"menjar sa\". És explicar per enèsima vegada què és una traça, és no poder improvisar un pla, és a vegades sentir-te la pesada de la taula. Prefereixo riure'm d'això que no pas que em defineixi. Aquí no hi trobaràs tecnicismes mèdics — per això hi ha el teu metge — sinó com es viu, de debò, sense gluten."
+    }
   }
 }

@@ -69,5 +69,35 @@
       "body": "La app que lleva a otro nivel todo lo que cuento por aquí: contenido claro sobre celiaquía, sin miedo y sin ser un manual médico.",
       "cta": "Ver la app →"
     }
+  },
+  "about": {
+    "meta": {
+      "title": "Sobre mí",
+      "description": "Soy Marta. Celíaca, madre y programadora, en ese orden según el día. Diagnosticada en 2018, esto es lo que aprendí por el camino."
+    },
+    "hero": {
+      "eyebrow": "Sobre mí",
+      "headline": "Soy Marta. Celíaca, madre y programadora, en ese orden según el día.",
+      "body": "Diagnosticada en 2018, de un día para otro pasé de comer lo que me diera la gana a leer etiquetas como si fuera un idioma nuevo. Esto es lo que aprendí por el camino — y lo que sigo aprendiendo.",
+      "imageAlt": "Marta ilustrada"
+    },
+    "timeline": [
+      {
+        "year": "2018",
+        "text": "Diagnóstico de celiaquía. El principio de un curso intensivo en \"leer la letra pequeña de todo\"."
+      },
+      {
+        "year": "2020",
+        "text": "Empiezo a contar en Instagram lo que nadie cuenta: el tupper en la mochila, el interrogatorio en cada bar, y la parte de risa que también hay en todo esto."
+      },
+      {
+        "year": "Hoy",
+        "text": "@glutenfreemarta crece con reels, guías prácticas y una comunidad que también está harta pero se ríe conmigo. Y ahora, con CeroGluten Lab, llevando todo esto un paso más allá."
+      }
+    ],
+    "tone": {
+      "title": "¿Por qué el tono sarcástico?",
+      "body": "Porque la celiaquía real no es solo \"comer sano\". Es explicar por enésima vez qué es una traza, es no poder improvisar un plan, es a veces sentirte la pesada de la mesa. Prefiero reírme de eso a que me defina. Aquí no vas a encontrar tecnicismos médicos — para eso está tu médico — sino cómo se vive, de verdad, sin gluten."
+    }
   }
 }

@@ -69,5 +69,35 @@
       "body": "The app that takes everything I share here one step further: clear content about coeliac disease, without the fear and without reading like a medical manual.",
       "cta": "See the app →"
     }
+  },
+  "about": {
+    "meta": {
+      "title": "About me",
+      "description": "I'm Marta. Coeliac, mother and programmer, in that order depending on the day. Diagnosed in 2018, this is what I learned along the way."
+    },
+    "hero": {
+      "eyebrow": "About me",
+      "headline": "I'm Marta. Coeliac, mother and programmer, in that order depending on the day.",
+      "body": "Diagnosed in 2018, overnight I went from eating whatever I fancied to reading labels like they were a new language. This is what I learned along the way — and what I'm still learning.",
+      "imageAlt": "Marta illustrated"
+    },
+    "timeline": [
+      {
+        "year": "2018",
+        "text": "Coeliac diagnosis. The start of a crash course in \"reading the small print on everything\"."
+      },
+      {
+        "year": "2020",
+        "text": "I start posting on Instagram what nobody talks about: the lunchbox in my backpack, the interrogation at every bar, and the funny side that's also in all of this."
+      },
+      {
+        "year": "Today",
+        "text": "@glutenfreemarta grows with reels, practical guides and a community that's just as fed up but laughs along with me. And now, with CeroGluten Lab, taking all of this one step further."
+      }
+    ],
+    "tone": {
+      "title": "Why the sarcastic tone?",
+      "body": "Because real coeliac disease isn't just \"eating healthy\". It's explaining for the hundredth time what a trace is, it's not being able to improvise a plan, it's sometimes feeling like the awkward one at the table. I'd rather laugh at that than let it define me. You won't find medical jargon here — that's what your doctor is for — but what living gluten-free is actually like."
+    }
   }
 }
