@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { getDictionary } from "@/lib/i18n/server";
-import { INSTAGRAM_URL } from "@/lib/site";
+import { APP_STORE_URL, GOOGLE_PLAY_URL, INSTAGRAM_URL } from "@/lib/site";
 
 export async function generateMetadata(): Promise<Metadata> {
   const { lab } = await getDictionary();
@@ -25,21 +24,25 @@ export default async function LabPage() {
             <p className="mb-8 max-w-[520px] text-[19px] leading-[1.7] text-ink-soft">
               {lab.hero.body}
             </p>
+            {/* Both stores, on every device: visitors share these links and
+                switch platforms, so never hide one behind UA sniffing. */}
             <div className="flex flex-wrap gap-4">
-              {/* TODO: link the real store */}
-              <Link
-                href="#"
+              <a
+                href={APP_STORE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="rounded-full bg-ink px-7 py-4 font-bold text-white transition-opacity hover:opacity-85"
               >
                 {lab.hero.appStore}
-              </Link>
-              {/* TODO: link the real store */}
-              <Link
-                href="#"
+              </a>
+              <a
+                href={GOOGLE_PLAY_URL}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="rounded-full border-2 border-ink px-7 py-3.5 font-bold text-ink transition-colors hover:bg-ink hover:text-cream"
               >
                 {lab.hero.googlePlay}
-              </Link>
+              </a>
             </div>
           </div>
 

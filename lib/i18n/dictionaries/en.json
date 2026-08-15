@@ -133,6 +133,12 @@
     "cta": {
       "title": "Already got it? Tell me what you think on Instagram.",
       "button": "@glutenfreemarta"
+    },
+    "qr": {
+      "redirecting": "Taking you to the store…",
+      "fallback": "If it doesn't open on its own in a couple of seconds, go straight in:",
+      "appStore": "App Store",
+      "googlePlay": "Google Play"
     }
   },
   "contact": {

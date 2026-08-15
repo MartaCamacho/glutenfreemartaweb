@@ -133,6 +133,12 @@
     "cta": {
       "title": "Ja la tens? Explica'm què et sembla per Instagram.",
       "button": "@glutenfreemarta"
+    },
+    "qr": {
+      "redirecting": "Et portem a la botiga…",
+      "fallback": "Si no s'obre sola en un parell de segons, entra-hi tu:",
+      "appStore": "App Store",
+      "googlePlay": "Google Play"
     }
   },
   "contact": {
