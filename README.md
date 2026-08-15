@@ -1,36 +1,62 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# glutenfreemarta.com
 
-## Getting Started
+Four-page site for [@glutenfreemarta](https://instagram.com/glutenfreemarta):
+home, about, the CeroGluten Lab app, and contact.
 
-First, run the development server:
+It was built from a high-fidelity design handoff — colours, type, spacing and
+copy are final, not drafts. The handoff is **not checked in**; it lives outside
+the repo at `~/Downloads/design_handoff_web/`, with one reference HTML per page
+under `design_reference/`. Worth committing if anyone else ever touches the
+design.
+
+## Stack
+
+- Next.js 16 (App Router) + React 19 + TypeScript
+- Tailwind CSS v4 — tokens live in the `@theme` block of `app/globals.css`,
+  **not** in a `tailwind.config.ts` (v4 is CSS-first)
+- Bricolage Grotesque + Plus Jakarta Sans via `next/font/google`
+- No runtime dependencies beyond the framework
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm run dev     # http://localhost:3000
+npm run build
+npm run lint
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Layout
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+app/                 routes: /, /sobre-mi, /cerogluten-lab, /contacto
+components/          Nav, Footer, LocaleSwitcher, ContactForm
+lib/site.ts          links, email, routes
+lib/i18n/            locale detection, dictionaries (es, en, ca)
+public/images/       illustrations
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Languages
 
-## Learn More
+Spanish, English and Catalan share the same URLs. The locale comes from the
+`locale` cookie, falling back to the browser's `Accept-Language` and then to
+Spanish; the switcher in the nav writes the cookie for a year. Because the
+locale is resolved on the server, pages render in the right language with no
+flash — the trade-off is that every route is server-rendered on demand rather
+than static, and search engines only index one language per URL.
 
-To learn more about Next.js, take a look at the following resources:
+Adding a string means adding it to all three files in `lib/i18n/dictionaries/`:
+TypeScript derives the dictionary type from `es.json`, so a missing key in
+`en.json` or `ca.json` fails the build.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Pending
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Store links** — the App Store and Google Play buttons on `/cerogluten-lab`
+  point at `#` until the apps are published.
+- **Contact email** — the form opens the visitor's mail client via `mailto:`.
+  `app/contacto/actions.ts` holds a ready server action to send real email with
+  Resend; it needs `npm i resend`, a `RESEND_API_KEY`, and swapping the form's
+  `onSubmit` for `action={sendContactMessage}`.
+- **Favicon** — none yet, so browsers show their default.
+- **Instagram feed** — the four cards on the home page are fixed sample posts,
+  not a live feed.
+- **Contrast** — `--color-green-mid` on cream falls short of WCAG AA at the 14px
+  eyebrow sizes. It is the handoff value; switching those uses to
+  `--color-green` would fix it.
