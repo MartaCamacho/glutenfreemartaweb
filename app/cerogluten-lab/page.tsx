@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { getDictionary } from "@/lib/i18n/server";
 import { APP_STORE_URL, GOOGLE_PLAY_URL, INSTAGRAM_URL } from "@/lib/site";
 
@@ -47,12 +48,15 @@ export default async function LabPage() {
           </div>
 
           <div className="flex justify-center">
-            <div className="flex aspect-[9/18] w-[260px] items-center justify-center rounded-[36px] border-8 border-ink bg-white p-4 text-center shadow-phone">
-              <span className="font-display text-[20px] font-extrabold leading-[1.15] text-green">
-                CeroGluten
-                <br />
-                Lab
-              </span>
+            <div className="w-[260px] overflow-hidden rounded-[36px] border-8 border-ink bg-white shadow-phone">
+              <Image
+                src="/images/cerogluten-lab-app.png"
+                alt={lab.hero.mockupAlt}
+                width={246}
+                height={500}
+                priority
+                className="w-full"
+              />
             </div>
           </div>
         </div>
