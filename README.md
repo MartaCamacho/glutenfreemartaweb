@@ -48,8 +48,12 @@ TypeScript derives the dictionary type from `es.json`, so a missing key in
 
 ## Pending
 
-- **Store links** — the App Store and Google Play buttons on `/cerogluten-lab`
-  point at `#` until the apps are published.
+- **Cookie consent** — the site loads Google Tag Manager (`GTM-PSVTGH47`) with
+  no consent banner. Analytics cookies need one in the EU. Nothing else on the
+  site sets a third-party cookie.
+- **App screenshot** — `public/images/cerogluten-lab-app.png` is only 246×500
+  and looks soft on high-density screens. Dropping a ≥750px-wide PNG of the same
+  proportion in its place is the whole fix; no code changes.
 - **Contact email** — the form opens the visitor's mail client via `mailto:`.
   `app/contacto/actions.ts` holds a ready server action to send real email with
   Resend; it needs `npm i resend`, a `RESEND_API_KEY`, and swapping the form's
@@ -60,3 +64,17 @@ TypeScript derives the dictionary type from `es.json`, so a missing key in
 - **Contrast** — `--color-green-mid` on cream falls short of WCAG AA at the 14px
   eyebrow sizes. It is the handoff value; switching those uses to
   `--color-green` would fix it.
+
+## Planned pages
+
+Neither is designed yet — the handoff does not cover them, so they need a look
+that matches without a reference to copy.
+
+- **Link in bio** — the single link the Instagram profile points at, collecting
+  whatever is current: CeroGluten Lab, discount codes (Natulim to start with,
+  more later), and posts worth surfacing. The codes want one generic component
+  driven by a list, not a block per brand. URL still undecided; `/links` is the
+  most common convention and works unchanged in all three languages, unlike
+  `/instagram`, which reads like it leaves the site.
+- **Media kit** — for brands and press: audience numbers, formats offered,
+  previous collaborations, contact.
