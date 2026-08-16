@@ -48,9 +48,6 @@ TypeScript derives the dictionary type from `es.json`, so a missing key in
 
 ## Pending
 
-- **Cookie consent** — the site loads Google Tag Manager (`GTM-PSVTGH47`) with
-  no consent banner. Analytics cookies need one in the EU. Nothing else on the
-  site sets a third-party cookie.
 - **App screenshot** — `public/images/cerogluten-lab-app.png` is only 246×500
   and looks soft on high-density screens. Dropping a ≥750px-wide PNG of the same
   proportion in its place is the whole fix; no code changes.
@@ -64,6 +61,21 @@ TypeScript derives the dictionary type from `es.json`, so a missing key in
 - **Contrast** — `--color-green-mid` on cream falls short of WCAG AA at the 14px
   eyebrow sizes. It is the handoff value; switching those uses to
   `--color-green` would fix it.
+
+## Cookies and consent
+
+Google Tag Manager (`GTM-PSVTGH47`) is **not loaded at all** until the visitor
+accepts: `app/layout.tsx` renders the script only when the `cookie-consent`
+cookie says `accepted`. Rejecting also clears any `_ga*` cookies a previous
+acceptance left behind. Anything unrecognised in that cookie counts as
+undecided, so tampering fails closed.
+
+The `locale` cookie is exempt — it is only written when someone clicks the
+language switcher.
+
+`/cookies` explains all of this and lets anyone change their mind. **It
+describes what the GTM container holds today: Google Analytics.** Adding an ads
+tag or a pixel there makes that page wrong, so update it in the same go.
 
 ## Planned pages
 

@@ -17,7 +17,8 @@
     "explore": "Explora",
     "follow": "Segueix-me",
     "instagram": "Instagram",
-    "copyright": "© 2026 Glutenfreemarta"
+    "copyright": "© 2026 Glutenfreemarta",
+    "cookies": "Cookies"
   },
   "home": {
     "hero": {
@@ -134,12 +135,6 @@
     "cta": {
       "title": "Ja la tens? Explica'm què et sembla per Instagram.",
       "button": "@glutenfreemarta"
-    },
-    "qr": {
-      "redirecting": "Et portem a la botiga…",
-      "fallback": "Si no s'obre sola en un parell de segons, entra-hi tu:",
-      "appStore": "App Store",
-      "googlePlay": "Google Play"
     }
   },
   "contact": {
@@ -169,6 +164,36 @@
       "instagram": "Instagram",
       "email": "Email",
       "note": "Responc jo, sense equip de community management ni respostes automàtiques estranyes. Pot ser que trigui un o dos dies — soc mare, celíaca i programadora, en aquest ordre segons el dia."
+    }
+  },
+  "cookies": {
+    "meta": {
+      "title": "Cookies",
+      "description": "Quines cookies fa servir aquest web, per a què serveixen i com canviar la teva decisió."
+    },
+    "banner": {
+      "label": "Avís de cookies",
+      "body": "Faig servir cookies de mesura per saber quines pàgines es llegeixen. No s'activen si no les acceptes.",
+      "more": "Més informació",
+      "accept": "Acceptar",
+      "reject": "Rebutjar"
+    },
+    "page": {
+      "eyebrow": "Cookies",
+      "headline": "Quines cookies fa servir aquest web",
+      "intro": "Just el necessari perquè funcioni l'idioma i per saber què es llegeix. Ni publicitat, ni perfils, ni venda de dades.",
+      "necessaryTitle": "Necessàries",
+      "necessaryBody": "Només n'hi ha una: es diu locale, desa l'idioma que tries al selector i dura un any. Es crea únicament quan la premes tu, no abans, així que no necessita permís. Sense ella, el web tornaria a l'idioma del navegador a cada visita.",
+      "analyticsTitle": "De mesura",
+      "analyticsBody": "Google Tag Manager carrega Google Analytics per comptar visites i veure quines pàgines interessen. Les seves cookies comencen per _ga i poden durar fins a dos anys. No es carreguen fins que les acceptes, i si les rebutges s'esborren les que hi hagués d'abans.",
+      "choiceTitle": "La teva decisió",
+      "choiceAccepted": "Ara mateix has acceptat les cookies de mesura.",
+      "choiceRejected": "Ara mateix has rebutjat les cookies de mesura.",
+      "choicePending": "Encara no has triat, així que no hi ha cap cookie de mesura activa.",
+      "choiceChange": "Pots canviar d'opinió quan vulguis:",
+      "browserTitle": "Esborrar-les des del navegador",
+      "browserBody": "A més d'això, qualsevol navegador permet veure i esborrar les cookies d'un lloc des dels seus ajustos de privacitat.",
+      "updated": "Última actualització: agost de 2026."
     }
   }
 }

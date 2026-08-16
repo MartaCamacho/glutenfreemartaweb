@@ -39,6 +39,12 @@ export default function Footer({
                 {link.label}
               </Link>
             ))}
+            <Link
+              href={ROUTES.cookies}
+              className="text-footer-link transition-colors hover:text-white"
+            >
+              {dict.cookies}
+            </Link>
           </div>
           <div className="flex flex-col gap-2.5 text-[15px]">
             <span className="mb-1 font-bold text-white">{dict.follow}</span>

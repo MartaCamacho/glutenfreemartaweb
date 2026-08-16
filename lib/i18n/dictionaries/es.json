@@ -17,7 +17,8 @@
     "explore": "Explora",
     "follow": "Sígueme",
     "instagram": "Instagram",
-    "copyright": "© 2026 Glutenfreemarta"
+    "copyright": "© 2026 Glutenfreemarta",
+    "cookies": "Cookies"
   },
   "home": {
     "hero": {
@@ -134,12 +135,6 @@
     "cta": {
       "title": "¿Ya la tienes? Cuéntame qué te parece por Instagram.",
       "button": "@glutenfreemarta"
-    },
-    "qr": {
-      "redirecting": "Te llevamos a la tienda…",
-      "fallback": "Si no se abre sola en un par de segundos, entra tú:",
-      "appStore": "App Store",
-      "googlePlay": "Google Play"
     }
   },
   "contact": {
@@ -169,6 +164,36 @@
       "instagram": "Instagram",
       "email": "Email",
       "note": "Respondo yo, sin equipo de community management ni respuestas automáticas raras. Puede que tarde uno o dos días — soy madre, celíaca y programadora, en ese orden según el día."
+    }
+  },
+  "cookies": {
+    "meta": {
+      "title": "Cookies",
+      "description": "Qué cookies usa esta web, para qué sirven y cómo cambiar tu decisión."
+    },
+    "banner": {
+      "label": "Aviso de cookies",
+      "body": "Uso cookies de medición para saber qué páginas se leen. No se activan si no las aceptas.",
+      "more": "Más información",
+      "accept": "Aceptar",
+      "reject": "Rechazar"
+    },
+    "page": {
+      "eyebrow": "Cookies",
+      "headline": "Qué cookies usa esta web",
+      "intro": "Lo justo para que funcione el idioma y para saber qué se lee. Ni publicidad, ni perfiles, ni venta de datos.",
+      "necessaryTitle": "Necesarias",
+      "necessaryBody": "Solo hay una: se llama locale, guarda el idioma que eliges en el selector y dura un año. Se crea únicamente cuando pulsas tú, no antes, así que no necesita permiso. Sin ella, la web volvería al idioma del navegador en cada visita.",
+      "analyticsTitle": "De medición",
+      "analyticsBody": "Google Tag Manager carga Google Analytics para contar visitas y ver qué páginas interesan. Sus cookies empiezan por _ga y pueden durar hasta dos años. No se cargan hasta que las aceptas, y si las rechazas se borran las que hubiera de antes.",
+      "choiceTitle": "Tu decisión",
+      "choiceAccepted": "Ahora mismo has aceptado las cookies de medición.",
+      "choiceRejected": "Ahora mismo has rechazado las cookies de medición.",
+      "choicePending": "Todavía no has elegido, así que no hay ninguna cookie de medición activa.",
+      "choiceChange": "Puedes cambiar de opinión cuando quieras:",
+      "browserTitle": "Borrarlas desde el navegador",
+      "browserBody": "Además de esto, cualquier navegador permite ver y borrar las cookies de un sitio desde sus ajustes de privacidad.",
+      "updated": "Última actualización: agosto de 2026."
     }
   }
 }

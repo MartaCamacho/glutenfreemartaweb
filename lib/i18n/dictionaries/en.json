@@ -17,7 +17,8 @@
     "explore": "Explore",
     "follow": "Follow me",
     "instagram": "Instagram",
-    "copyright": "© 2026 Glutenfreemarta"
+    "copyright": "© 2026 Glutenfreemarta",
+    "cookies": "Cookies"
   },
   "home": {
     "hero": {
@@ -134,12 +135,6 @@
     "cta": {
       "title": "Already got it? Tell me what you think on Instagram.",
       "button": "@glutenfreemarta"
-    },
-    "qr": {
-      "redirecting": "Taking you to the store…",
-      "fallback": "If it doesn't open on its own in a couple of seconds, go straight in:",
-      "appStore": "App Store",
-      "googlePlay": "Google Play"
     }
   },
   "contact": {
@@ -169,6 +164,36 @@
       "instagram": "Instagram",
       "email": "Email",
       "note": "I reply myself, with no community management team and no weird automated replies. It might take me a day or two — I'm a mother, a coeliac and a programmer, in that order depending on the day."
+    }
+  },
+  "cookies": {
+    "meta": {
+      "title": "Cookies",
+      "description": "What cookies this site uses, what they are for and how to change your mind."
+    },
+    "banner": {
+      "label": "Cookie notice",
+      "body": "I use measurement cookies to see which pages get read. They stay off unless you accept them.",
+      "more": "More information",
+      "accept": "Accept",
+      "reject": "Reject"
+    },
+    "page": {
+      "eyebrow": "Cookies",
+      "headline": "What cookies this site uses",
+      "intro": "Just enough to remember your language and to see what gets read. No advertising, no profiling, no selling data.",
+      "necessaryTitle": "Necessary",
+      "necessaryBody": "There is only one: it is called locale, it stores the language you pick in the switcher and it lasts a year. It is created only when you click, never before, so it needs no permission. Without it, the site would fall back to your browser's language on every visit.",
+      "analyticsTitle": "Measurement",
+      "analyticsBody": "Google Tag Manager loads Google Analytics to count visits and see which pages are of interest. Its cookies start with _ga and can last up to two years. They do not load until you accept them, and if you reject them any earlier ones are deleted.",
+      "choiceTitle": "Your choice",
+      "choiceAccepted": "Right now you have accepted measurement cookies.",
+      "choiceRejected": "Right now you have rejected measurement cookies.",
+      "choicePending": "You have not chosen yet, so no measurement cookie is active.",
+      "choiceChange": "You can change your mind whenever you like:",
+      "browserTitle": "Deleting them from your browser",
+      "browserBody": "On top of this, every browser lets you see and delete a site's cookies from its privacy settings.",
+      "updated": "Last updated: August 2026."
     }
   }
 }

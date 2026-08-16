@@ -14,6 +14,6 @@ export const ROUTES = {
   home: "/",
   about: "/sobre-mi",
   lab: "/cerogluten-lab",
-  labQr: "/cerogluten-lab/qr",
   contact: "/contacto",
+  cookies: "/cookies",
 } as const;
