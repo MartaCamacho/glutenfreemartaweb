@@ -62,7 +62,13 @@
           "note": "Yes, I was \"the odd one\" with the lunchbox again."
         }
       ],
-      "disclaimer": "Sample posts — connect your real Instagram feed to show them live."
+      "disclaimer": "Sample posts — connect your real Instagram feed to show them live.",
+      "types": {
+        "image": "Photo",
+        "video": "Reel",
+        "carousel": "Carousel"
+      },
+      "imageAlt": "Post by @glutenfreemarta"
     },
     "lab": {
       "eyebrow": "The app",

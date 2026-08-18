@@ -62,7 +62,13 @@
           "note": "Sí, un altre cop vaig ser \"la rara\" de la carmanyola."
         }
       ],
-      "disclaimer": "Publicacions d'exemple — connecta el teu feed d'Instagram real per mostrar-les en directe."
+      "disclaimer": "Publicacions d'exemple — connecta el teu feed d'Instagram real per mostrar-les en directe.",
+      "types": {
+        "image": "Foto",
+        "video": "Reel",
+        "carousel": "Carrusel"
+      },
+      "imageAlt": "Publicació de @glutenfreemarta"
     },
     "lab": {
       "eyebrow": "L'app",

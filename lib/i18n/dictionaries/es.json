@@ -62,7 +62,13 @@
           "note": "Sí, otra vez fui \"la rara\" del tupper."
         }
       ],
-      "disclaimer": "Publicaciones de ejemplo — conecta tu feed de Instagram real para mostrarlas en vivo."
+      "disclaimer": "Publicaciones de ejemplo — conecta tu feed de Instagram real para mostrarlas en vivo.",
+      "types": {
+        "image": "Foto",
+        "video": "Reel",
+        "carousel": "Carrusel"
+      },
+      "imageAlt": "Publicación de @glutenfreemarta"
     },
     "lab": {
       "eyebrow": "La app",

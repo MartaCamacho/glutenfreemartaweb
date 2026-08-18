@@ -1,5 +1,9 @@
 export const INSTAGRAM_URL = "https://instagram.com/glutenfreemarta";
 export const INSTAGRAM_HANDLE = "@glutenfreemarta";
+
+export const INSTAGRAM_API_BASE = "https://graph.instagram.com/v23.0";
+export const INSTAGRAM_FEED_COUNT = 4;
+export const INSTAGRAM_REVALIDATE_SECONDS = 3600;
 export const CONTACT_EMAIL = "glutenfreemarta@gmail.com";
 
 export const APP_STORE_URL =

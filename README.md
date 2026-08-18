@@ -27,11 +27,43 @@ npm run lint
 
 ```
 app/                 routes: /, /sobre-mi, /cerogluten-lab, /contacto
-components/          Nav, Footer, LocaleSwitcher, ContactForm
+app/api/instagram/   image proxy for the feed
+components/          Nav, Footer, LocaleSwitcher, ContactForm, InstagramFeed
 lib/site.ts          links, email, routes
+lib/instagram.ts     the live feed
 lib/i18n/            locale detection, dictionaries (es, en, ca)
 public/images/       illustrations
+scripts/             Instagram token maintenance
 ```
+
+## Instagram feed
+
+The four cards on the home page are the latest posts from `@glutenfreemarta`,
+read from the Instagram API and cached for an hour.
+
+It needs `INSTAGRAM_ACCESS_TOKEN` in `.env.local` and in Vercel — see
+`.env.example`. **Without it nothing breaks**: the section falls back to the
+sample posts in the dictionaries, which is also what happens if Meta errors or
+the token expires. Watch for that, because the failure is silent by design.
+
+```bash
+npm run instagram:check     # verify the token, print the posts the site would render
+npm run instagram:refresh   # extend the token, then paste it into .env.local and Vercel
+```
+
+Two things about this API worth knowing before touching it:
+
+- Tokens **expire 60 days** after being issued or refreshed. A monthly GitHub
+  Action (`.github/workflows/instagram-token.yml`) rotates the one on Vercel so
+  nobody has to remember; it needs `VERCEL_TOKEN` and `VERCEL_PROJECT_ID` as
+  repository secrets. Vercel holds the only copy of the token.
+- `media_url` is a **signed CDN URL that expires**, so it must never reach the
+  browser. `app/api/instagram/[id]/route.ts` proxies images by media id, which
+  is stable and cacheable. That is why there is no `images.remotePatterns`
+  entry.
+
+Captions are shown in Spanish in all three languages — the posts themselves are
+Spanish. Only the chrome and the media-type labels are translated.
 
 ## Languages
 
@@ -56,8 +88,11 @@ TypeScript derives the dictionary type from `es.json`, so a missing key in
   Resend; it needs `npm i resend`, a `RESEND_API_KEY`, and swapping the form's
   `onSubmit` for `action={sendContactMessage}`.
 - **Favicon** — none yet, so browsers show their default.
-- **Instagram feed** — the four cards on the home page are fixed sample posts,
-  not a live feed.
+- **Media kit** — an unlisted `noindex` page with live follower, view and share
+  numbers from the Instagram Insights API. The token already carries the
+  `instagram_business_manage_insights` scope, so no re-authorisation is needed.
+  Note that Meta only retains those metrics for 90 days, and audience
+  demographics need at least 100 followers.
 - **Contrast** — `--color-green-mid` on cream falls short of WCAG AA at the 14px
   eyebrow sizes. It is the handoff value; switching those uses to
   `--color-green` would fix it.
