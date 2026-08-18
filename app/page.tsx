@@ -1,17 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
-import { getDictionary } from "@/lib/i18n/server";
+import InstagramFeed from "@/components/InstagramFeed";
+import { getDictionary, getLocale } from "@/lib/i18n/server";
 import { INSTAGRAM_URL, ROUTES } from "@/lib/site";
 
-const POST_ACCENTS = [
-  "text-green-mid",
-  "text-pink",
-  "text-green-mid",
-  "text-pink",
-];
-
 export default async function HomePage() {
-  const { home } = await getDictionary();
+  const [{ home }, locale] = await Promise.all([getDictionary(), getLocale()]);
 
   return (
     <>
@@ -84,51 +78,7 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <section className="bg-pink-soft px-[6%] py-[90px]">
-        <div className="mx-auto max-w-[1400px]">
-          <p className="mb-3 text-sm font-bold uppercase tracking-[0.08em] text-pink">
-            {home.feed.eyebrow}
-          </p>
-          <div className="mb-11 flex flex-wrap items-end justify-between gap-5">
-            <h2 className="max-w-[560px] font-display text-[clamp(28px,3.5vw,42px)] font-extrabold leading-[1.15]">
-              {home.feed.title}
-            </h2>
-            <a
-              href={INSTAGRAM_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="whitespace-nowrap font-bold text-pink transition-colors hover:text-pink-hover"
-            >
-              {home.feed.link}
-            </a>
-          </div>
-
-          <div className="grid gap-6 [grid-template-columns:repeat(auto-fit,minmax(260px,1fr))]">
-            {home.feed.posts.map((post, i) => (
-              <article
-                key={post.title}
-                className="flex min-h-[220px] flex-col justify-between gap-4 rounded-card bg-white p-7 shadow-card"
-              >
-                <span
-                  className={`text-xs font-bold uppercase tracking-[0.06em] ${
-                    POST_ACCENTS[i % POST_ACCENTS.length]
-                  }`}
-                >
-                  {post.tag}
-                </span>
-                <p className="font-display text-[19px] font-bold leading-[1.3]">
-                  {post.title}
-                </p>
-                <span className="text-sm text-ink-muted">{post.note}</span>
-              </article>
-            ))}
-          </div>
-
-          <p className="mt-9 text-center text-sm text-ink-muted">
-            {home.feed.disclaimer}
-          </p>
-        </div>
-      </section>
+      <InstagramFeed dict={home.feed} locale={locale} />
 
       <section className="mx-auto grid max-w-[1400px] items-center gap-15 px-[6%] py-[90px] md:grid-cols-[1.2fr_0.8fr]">
         <div>

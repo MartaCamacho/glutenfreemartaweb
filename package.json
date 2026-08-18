@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "instagram:check": "node scripts/instagram-token.mjs check",
+    "instagram:refresh": "node scripts/instagram-token.mjs refresh"
   },
   "dependencies": {
     "next": "16.3.0",
