@@ -155,7 +155,6 @@ describe("captionHeadline", () => {
 describe("loadInstagramPosts", () => {
   const OPTIONS = {
     apiBase: "https://graph.instagram.com/v23.0",
-    count: 4,
     revalidateSeconds: 3600,
   };
 
@@ -199,6 +198,19 @@ describe("loadInstagramPosts", () => {
     const posts = await loadInstagramPosts({ ...OPTIONS, token: "tok", fetchImpl });
 
     assert.deepEqual(posts?.map((post) => post.id), ["1", "2"]);
+  });
+
+  it("keeps the whole window, not just the four the home page shows", async () => {
+    const window = Array.from({ length: 9 }, (_, i) => ({
+      ...IMAGE,
+      id: `post-${i}`,
+    }));
+    const { fetchImpl } = respondWith({ data: window });
+    const posts = await loadInstagramPosts({ ...OPTIONS, token: "tok", fetchImpl });
+
+    // The image proxy resolves ids against this list, so trimming it here would
+    // 404 every media-kit thumbnail below the fourth post.
+    assert.equal(posts?.length, 9);
   });
 
   it("never calls the API without a token", async () => {

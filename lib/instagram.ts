@@ -1,5 +1,6 @@
 import { cache } from "react";
 import {
+  FETCH_LIMIT,
   loadInstagramPosts,
   type InstagramPost,
   type ResolvedPost,
@@ -17,22 +18,29 @@ const getResolvedPosts = cache(async (): Promise<ResolvedPost[] | null> => {
   return loadInstagramPosts({
     token: process.env.INSTAGRAM_ACCESS_TOKEN,
     apiBase: INSTAGRAM_API_BASE,
-    count: INSTAGRAM_FEED_COUNT,
     revalidateSeconds: INSTAGRAM_REVALIDATE_SECONDS,
   });
 });
 
-export async function getInstagramPosts(): Promise<InstagramPost[] | null> {
+/** The home feed wants four; the media kit ranks the whole fetched window. */
+export async function getInstagramPosts(
+  count: number = INSTAGRAM_FEED_COUNT,
+): Promise<InstagramPost[] | null> {
   const posts = await getResolvedPosts();
   if (!posts) return null;
 
-  return posts.map(({ id, permalink, caption, mediaType, timestamp }) => ({
+  return posts.slice(0, count).map(({ id, permalink, caption, mediaType, timestamp }) => ({
     id,
     permalink,
     caption,
     mediaType,
     timestamp,
   }));
+}
+
+/** Everything fetched, for callers that rank posts instead of showing the newest. */
+export async function getInstagramPostPool(): Promise<InstagramPost[] | null> {
+  return getInstagramPosts(FETCH_LIMIT);
 }
 
 /** Only ids in the current feed resolve, so the proxy can't serve arbitrary media. */

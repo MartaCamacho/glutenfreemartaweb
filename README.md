@@ -1,7 +1,8 @@
 # glutenfreemarta.com
 
-Four-page site for [@glutenfreemarta](https://instagram.com/glutenfreemarta):
-home, about, the CeroGluten Lab app, and contact.
+Site for [@glutenfreemarta](https://instagram.com/glutenfreemarta): home,
+about, the CeroGluten Lab app and contact, plus an unlisted media kit for
+brands.
 
 It was built from a high-fidelity design handoff — colours, type, spacing and
 copy are final, not drafts. The handoff is **not checked in**; it lives outside
@@ -42,11 +43,13 @@ what catches a missing dictionary key.
 
 ```
 app/                 routes: /, /sobre-mi, /cerogluten-lab, /contacto
+app/colaboraciones/  the media kit; unlisted and noindex
 app/icon.svg         favicon; app/apple-icon.png is the touch icon
 app/api/instagram/   image proxy for the feed
 components/          Nav, Footer, LocaleSwitcher, ContactForm, InstagramFeed
 lib/site.ts          links, email, routes
 lib/instagram.ts     the live feed
+lib/instagram-stats.ts  the media kit's audience numbers
 lib/i18n/            locale detection, dictionaries (es, en, ca)
 public/images/       illustrations
 scripts/             Instagram token maintenance
@@ -103,14 +106,42 @@ TypeScript derives the dictionary type from `es.json`, so a missing key in
   `app/contacto/actions.ts` holds a ready server action to send real email with
   Resend; it needs `npm i resend`, a `RESEND_API_KEY`, and swapping the form's
   `onSubmit` for `action={sendContactMessage}`.
-- **Media kit** — an unlisted `noindex` page with live follower, view and share
-  numbers from the Instagram Insights API. The token already carries the
-  `instagram_business_manage_insights` scope, so no re-authorisation is needed.
-  Note that Meta only retains those metrics for 90 days, and audience
-  demographics need at least 100 followers.
 - **Contrast** — `--color-green-mid` on cream falls short of WCAG AA at the 14px
   eyebrow sizes. It is the handoff value; switching those uses to
   `--color-green` would fix it.
+
+## Media kit
+
+`/colaboraciones` is the page for brands: audience numbers, who the followers
+are, the posts that performed best, the formats on offer, and how to get in
+touch. It is **unlisted** — in no nav or footer, and `noindex, nofollow` — so
+only someone sent the URL ever sees it.
+
+The numbers are live from the Instagram Insights API over a rolling **90-day**
+window, because that is all Meta retains; `lib/instagram-stats.ts` caches them
+for six hours. **Without a valid token the numbers, audience and top-post
+sections do not render at all.** Unlike the home feed there is nothing honest to
+fall back on, and invented figures in a document sent to brands would be worse
+than none.
+
+Two things about Insights worth knowing before touching it:
+
+- Asking for per-post metrics as a nested `insights` field makes one bad metric
+  fail the **whole** `/me/media` call. That is why the media kit fetches them in
+  a request of its own — bolted onto the feed's call, an Insights outage would
+  take the home page feed down with it. `?ids=` batching is no help: it is gone
+  in v26+.
+- The metric is `saved` on a post but `saves` on the account.
+
+Percentages are over every follower, including the ones Instagram cannot assign
+a gender to. Counting only the known ones would turn "62% women" into "89%" —
+flattering, and not a number to hand a brand.
+
+Which posts were collaborations is not something the API knows, so the brands
+list is hand-written in the `mediaKit.brands.items` array of the dictionaries.
+
+This is also the only page whose copy did not come from the design handoff,
+which covers the original four and no more.
 
 ## Cookies and consent
 
@@ -129,8 +160,8 @@ tag or a pixel there makes that page wrong, so update it in the same go.
 
 ## Planned pages
 
-Neither is designed yet — the handoff does not cover them, so they need a look
-that matches without a reference to copy.
+Not designed yet — the handoff does not cover it, so it needs a look that
+matches without a reference to copy.
 
 - **Link in bio** — the single link the Instagram profile points at, collecting
   whatever is current: CeroGluten Lab, discount codes (Natulim to start with,
@@ -138,5 +169,4 @@ that matches without a reference to copy.
   driven by a list, not a block per brand. URL still undecided; `/links` is the
   most common convention and works unchanged in all three languages, unlike
   `/instagram`, which reads like it leaves the site.
-- **Media kit** — for brands and press: audience numbers, formats offered,
-  previous collaborations, contact.
+(The media kit, which used to be listed here, is built — see above.)

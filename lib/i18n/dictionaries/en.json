@@ -202,5 +202,84 @@
       "browserBody": "On top of this, every browser lets you see and delete a site's cookies from its privacy settings.",
       "updated": "Last updated: August 2026."
     }
+  },
+  "mediaKit": {
+    "meta": {
+      "title": "Media kit",
+      "description": "Numbers, audience and formats for @glutenfreemarta. For brands that want to know who they are talking to before they write."
+    },
+    "hero": {
+      "eyebrow": "Media kit",
+      "headline": "The numbers, unretouched.",
+      "body": "If you got this far, you are thinking about a collaboration. Here is what there is: how many people read me, who they are, and what I can do. The data comes straight from Instagram and updates itself, so it is not a screenshot of my best month.",
+      "imageAlt": "Marta, illustration"
+    },
+    "numbers": {
+      "eyebrow": "The data",
+      "title": "What happened in the last {days} days",
+      "followers": "Followers",
+      "reach": "Accounts reached",
+      "views": "Views",
+      "interactions": "Interactions",
+      "shares": "Shares",
+      "saves": "Saves",
+      "note": "Straight from Instagram Insights. Meta only keeps {days} days, so this is everything I can show — and it is exactly what there is."
+    },
+    "audience": {
+      "title": "Who is on the other side",
+      "women": "Women",
+      "topAge": "Main age range",
+      "countries": "Where they read me from",
+      "note": "People who do the shopping, read labels and ask the group chat which bread does not taste like cardboard. If your product is gluten free, they are already looking for it."
+    },
+    "topPosts": {
+      "title": "What worked best",
+      "reach": "Reach",
+      "shares": "Shares",
+      "saves": "Saves",
+      "link": "View on Instagram →"
+    },
+    "formats": {
+      "eyebrow": "Formats",
+      "title": "What I can do for your brand",
+      "items": [
+        {
+          "title": "Reel",
+          "body": "What works best here: the product in a real situation, not on a set. If I would not eat it, I do not film it."
+        },
+        {
+          "title": "Carousel",
+          "body": "For when there is something to actually explain: ingredients, certification, why that \"gluten free\" can be trusted."
+        },
+        {
+          "title": "Stories with a link",
+          "body": "A series of stories with a direct link and a code if there is one. They stay in highlights instead of vanishing after 24 hours."
+        },
+        {
+          "title": "An honest review",
+          "body": "I try the product and say how it went. If it is bad I will say so, and that is exactly why people believe me when it is good."
+        },
+        {
+          "title": "A spot in CeroGluten Lab",
+          "body": "My app has an audience of its own, and not everything has to go through the feed."
+        }
+      ]
+    },
+    "brands": {
+      "title": "Brands I have worked with",
+      "note": "The list is short on purpose: I only show up with brands I would use anyway.",
+      "items": [
+        {
+          "name": "Natulim",
+          "what": "Discount code for my community."
+        }
+      ]
+    },
+    "cta": {
+      "title": "Shall we talk?",
+      "body": "Tell me what you have in mind. I write and I reply myself, with no agency in between.",
+      "email": "Send me an email",
+      "instagram": "Or reach me on Instagram"
+    }
   }
 }
