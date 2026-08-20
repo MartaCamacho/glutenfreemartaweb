@@ -98,11 +98,20 @@ export default async function HomePage() {
             {home.lab.cta}
           </Link>
         </div>
-        <div className="flex min-h-[220px] items-center justify-center rounded-block bg-green-soft p-10">
-          <span className="font-display text-[28px] font-extrabold text-green-deep">
-            CeroGluten Lab
-          </span>
-        </div>
+        <Link
+          href={ROUTES.lab}
+          className="group flex items-center justify-center rounded-block bg-green-soft p-10"
+        >
+          <div className="w-[150px] overflow-hidden rounded-[24px] border-[6px] border-ink bg-white shadow-phone transition-transform duration-300 group-hover:-translate-y-2 motion-reduce:transition-none">
+            <Image
+              src="/images/cerogluten-lab-app.png"
+              alt={home.lab.imageAlt}
+              width={246}
+              height={500}
+              className="w-full"
+            />
+          </div>
+        </Link>
       </section>
     </>
   );
