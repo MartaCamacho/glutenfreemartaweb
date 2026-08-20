@@ -1,6 +1,7 @@
 import Image from "next/image";
 import type { Locale } from "@/lib/i18n/config";
 import type { Dictionary } from "@/lib/i18n/server";
+import { captionHeadline } from "@/lib/instagram-api";
 import { getInstagramPosts, type InstagramPost } from "@/lib/instagram";
 import { INSTAGRAM_URL } from "@/lib/site";
 
@@ -24,13 +25,6 @@ function accent(index: number) {
   return POST_ACCENTS[index % POST_ACCENTS.length];
 }
 
-/** Captions run long and rambling; the card only has room for the opening line. */
-function headline(caption: string | null, fallback: string) {
-  if (!caption) return fallback;
-  const firstLine = caption.split("\n")[0].trim();
-  return firstLine.length > 0 ? firstLine : fallback;
-}
-
 function LivePost({
   post,
   index,
@@ -42,7 +36,7 @@ function LivePost({
   dict: FeedDict;
   locale: Locale;
 }) {
-  const title = headline(post.caption, dict.imageAlt);
+  const title = captionHeadline(post.caption, dict.imageAlt);
   const date = new Intl.DateTimeFormat(locale, {
     day: "numeric",
     month: "long",
