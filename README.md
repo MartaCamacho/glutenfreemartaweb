@@ -21,7 +21,22 @@ design.
 npm run dev     # http://localhost:3000
 npm run build
 npm run lint
+npm test
 ```
+
+## Tests
+
+`node --test` over the `.ts` files directly — node strips the types, so there is
+no test runner to install and no config to keep in sync.
+
+The suite covers `lib/instagram-api.ts`, which is deliberately free of React and
+Next imports so it can run under plain node. It is the only logic here that can
+fail quietly: picking a reel's thumbnail over its video file, descending into a
+carousel, dropping posts the card cannot render, and returning `null` instead of
+throwing when Meta misbehaves.
+
+Everything else — pages, components, i18n — has no tests. `npm run build` is
+what catches a missing dictionary key.
 
 ## Layout
 

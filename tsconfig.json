@@ -6,6 +6,9 @@
     "skipLibCheck": true,
     "strict": true,
     "noEmit": true,
+    // The node:test suites import with an explicit .ts extension, which is what
+    // node's type stripping resolves. Safe here because nothing is emitted.
+    "allowImportingTsExtensions": true,
     "esModuleInterop": true,
     "module": "esnext",
     "moduleResolution": "bundler",
