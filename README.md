@@ -42,6 +42,7 @@ what catches a missing dictionary key.
 
 ```
 app/                 routes: /, /sobre-mi, /cerogluten-lab, /contacto
+app/icon.svg         favicon; app/apple-icon.png is the touch icon
 app/api/instagram/   image proxy for the feed
 components/          Nav, Footer, LocaleSwitcher, ContactForm, InstagramFeed
 lib/site.ts          links, email, routes
@@ -102,7 +103,6 @@ TypeScript derives the dictionary type from `es.json`, so a missing key in
   `app/contacto/actions.ts` holds a ready server action to send real email with
   Resend; it needs `npm i resend`, a `RESEND_API_KEY`, and swapping the form's
   `onSubmit` for `action={sendContactMessage}`.
-- **Favicon** — none yet, so browsers show their default.
 - **Media kit** — an unlisted `noindex` page with live follower, view and share
   numbers from the Instagram Insights API. The token already carries the
   `instagram_business_manage_insights` scope, so no re-authorisation is needed.
