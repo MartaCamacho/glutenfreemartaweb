@@ -206,31 +206,31 @@
   "mediaKit": {
     "meta": {
       "title": "Media kit",
-      "description": "Números, audiencia y formatos de @glutenfreemarta. Para marcas que quieren saber con quién hablan antes de escribir."
+      "description": "Números, audiencia y formatos de @glutenfreemarta. Todo lo que necesitas para valorar una colaboración."
     },
     "hero": {
       "eyebrow": "Media kit",
-      "headline": "Los números, sin maquillar.",
-      "body": "Si has llegado hasta aquí es porque estás pensando en una colaboración. Aquí tienes lo que hay: cuánta gente me lee, quién es y qué sé hacer. Los datos salen directos de Instagram y se actualizan solos, así que no son una captura de mi mejor mes.",
+      "headline": "Una comunidad que se fía de lo que le cuento.",
+      "body": "Me alegra que estés aquí. En esta página tienes todo lo que necesitas para decidir: cuánta gente me lee, quién es y en qué formatos trabajo. Los datos vienen directos de Instagram y se actualizan solos, así que siempre estás viendo la foto real del momento.",
       "imageAlt": "Marta, ilustración"
     },
     "numbers": {
       "eyebrow": "Los datos",
-      "title": "Lo que pasó en los últimos {days} días",
+      "title": "Los últimos {days} días",
       "followers": "Seguidores",
       "reach": "Cuentas alcanzadas",
       "views": "Visualizaciones",
       "interactions": "Interacciones",
       "shares": "Compartidos",
       "saves": "Guardados",
-      "note": "Directo de Instagram Insights. Meta solo guarda {days} días, así que esto es todo lo que puedo enseñar — y es exactamente lo que hay."
+      "note": "Datos directos de Instagram Insights, sin capturas ni redondeos. Meta guarda {days} días de histórico, así que esta es siempre la foto más reciente."
     },
     "audience": {
       "title": "Quién hay al otro lado",
       "women": "Mujeres",
-      "topAge": "Franja principal",
+      "topAge": "Franja de edad principal",
       "countries": "De dónde me leen",
-      "note": "Gente que hace la compra, lee etiquetas y pregunta en el grupo qué marca de pan no sabe a cartón. Si tu producto es sin gluten, ya lo están buscando."
+      "note": "Sobre todo mujeres que hacen la compra de casa y leen cada etiqueta antes de meter algo en el carro. Cuando encuentran un producto que les funciona, lo repiten y lo recomiendan — buscar sin gluten es un trabajo diario y se agradece mucho a quien te lo pone fácil."
     },
     "topPosts": {
       "title": "Lo que mejor ha funcionado",
@@ -245,29 +245,29 @@
       "items": [
         {
           "title": "Reel",
-          "body": "Lo que mejor funciona aquí: el producto en una situación real, no en un plató. Si no me lo comería, no lo grabo."
+          "body": "El formato que más alcance me da: tu producto en una situación cotidiana, contado con naturalidad y con la receta o el truco que le da sentido."
         },
         {
           "title": "Carrusel",
-          "body": "Para cuando hay algo que explicar de verdad: ingredientes, certificación, por qué ese \"sin gluten\" sí es de fiar."
+          "body": "Para cuando hay algo que explicar con calma: ingredientes, certificaciones, en qué se diferencia tu producto. Es el formato que más se guarda."
         },
         {
           "title": "Stories con enlace",
-          "body": "Serie de stories con enlace directo y código si lo hay. Se quedan en destacados, no desaparecen a las 24 horas."
+          "body": "Serie de stories con enlace directo y código de descuento si lo hay. Las dejo fijadas en destacados, así siguen trayendo visitas mucho después de las 24 horas."
         },
         {
           "title": "Reseña honesta",
-          "body": "Pruebo el producto y cuento qué tal. Si está malo lo diré, y precisamente por eso la gente se cree lo que digo cuando está bueno."
+          "body": "Pruebo el producto y cuento mi experiencia real. Esa honestidad es justo lo que hace que mi comunidad se fíe cuando recomiendo algo, y por eso funciona tan bien."
         },
         {
           "title": "Presencia en CeroGluten Lab",
-          "body": "Mi app tiene su propio público, y no todo tiene que pasar por el feed."
+          "body": "Mi app sobre celiaquía tiene su propia comunidad, así que también podemos plantear algo ahí y no solo en el feed."
         }
       ]
     },
     "brands": {
       "title": "Marcas con las que he trabajado",
-      "note": "La lista es corta a propósito: solo salgo con marcas que usaría igualmente.",
+      "note": "Colaboraciones que he hecho hasta ahora.",
       "items": [
         {
           "name": "Natulim",
@@ -277,7 +277,7 @@
     },
     "cta": {
       "title": "¿Hablamos?",
-      "body": "Cuéntame qué tienes en mente. Escribo yo y contesto yo, sin agencia por medio.",
+      "body": "Cuéntame qué tienes en mente y vemos juntas cómo encajarlo. Me escribes a mí directamente y te respondo yo.",
       "email": "Escríbeme un email",
       "instagram": "O por Instagram"
     }

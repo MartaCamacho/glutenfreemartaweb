@@ -206,31 +206,31 @@
   "mediaKit": {
     "meta": {
       "title": "Media kit",
-      "description": "Números, audiència i formats de @glutenfreemarta. Per a marques que volen saber amb qui parlen abans d'escriure."
+      "description": "Números, audiència i formats de @glutenfreemarta. Tot el que necessites per valorar una col·laboració."
     },
     "hero": {
       "eyebrow": "Media kit",
-      "headline": "Els números, sense maquillar.",
-      "body": "Si has arribat fins aquí és perquè estàs pensant en una col·laboració. Aquí tens el que hi ha: quanta gent em llegeix, qui és i què sé fer. Les dades surten directes d'Instagram i s'actualitzen soles, així que no són una captura del meu millor mes.",
+      "headline": "Una comunitat que es fia del que li explico.",
+      "body": "M'alegra que hi siguis. En aquesta pàgina tens tot el que necessites per decidir: quanta gent em llegeix, qui és i en quins formats treballo. Les dades vénen directes d'Instagram i s'actualitzen soles, així que sempre estàs veient la foto real del moment.",
       "imageAlt": "Marta, il·lustració"
     },
     "numbers": {
       "eyebrow": "Les dades",
-      "title": "El que ha passat els últims {days} dies",
+      "title": "Els últims {days} dies",
       "followers": "Seguidors",
       "reach": "Comptes abastats",
       "views": "Visualitzacions",
       "interactions": "Interaccions",
       "shares": "Compartits",
       "saves": "Desats",
-      "note": "Directe d'Instagram Insights. Meta només guarda {days} dies, així que això és tot el que puc ensenyar — i és exactament el que hi ha."
+      "note": "Dades directes d'Instagram Insights, sense captures ni arrodoniments. Meta guarda {days} dies d'històric, així que aquesta és sempre la foto més recent."
     },
     "audience": {
       "title": "Qui hi ha a l'altra banda",
       "women": "Dones",
-      "topAge": "Franja principal",
+      "topAge": "Franja d'edat principal",
       "countries": "D'on em llegeixen",
-      "note": "Gent que fa la compra, llegeix etiquetes i pregunta al grup quina marca de pa no té gust de cartró. Si el teu producte és sense gluten, ja l'estan buscant."
+      "note": "Sobretot dones que fan la compra de casa i llegeixen cada etiqueta abans de posar res al carro. Quan troben un producte que els funciona, hi repeteixen i el recomanen — comprar sense gluten és una feina diària i s'agraeix molt qui t'ho posa fàcil."
     },
     "topPosts": {
       "title": "El que ha funcionat millor",
@@ -245,29 +245,29 @@
       "items": [
         {
           "title": "Reel",
-          "body": "El que funciona millor aquí: el producte en una situació real, no en un plató. Si no me'l menjaria, no el gravo."
+          "body": "El format que em dóna més abast: el teu producte en una situació quotidiana, explicat amb naturalitat i amb la recepta o el truc que li dóna sentit."
         },
         {
           "title": "Carrusel",
-          "body": "Per quan hi ha alguna cosa a explicar de debò: ingredients, certificació, per què aquell \"sense gluten\" sí que és de fiar."
+          "body": "Per quan hi ha alguna cosa a explicar amb calma: ingredients, certificacions, en què es diferencia el teu producte. És el format que més es desa."
         },
         {
           "title": "Stories amb enllaç",
-          "body": "Sèrie d'stories amb enllaç directe i codi si n'hi ha. Es queden a destacats, no desapareixen al cap de 24 hores."
+          "body": "Sèrie d'stories amb enllaç directe i codi de descompte si n'hi ha. Les deixo fixades a destacats, així segueixen portant visites molt després de les 24 hores."
         },
         {
           "title": "Ressenya honesta",
-          "body": "Provo el producte i explico què tal. Si és dolent ho diré, i precisament per això la gent es creu el que dic quan és bo."
+          "body": "Provo el producte i explico la meva experiència real. Aquesta honestedat és justament el que fa que la meva comunitat es fiï quan recomano alguna cosa, i per això funciona tan bé."
         },
         {
           "title": "Presència a CeroGluten Lab",
-          "body": "La meva app té el seu propi públic, i no tot ha de passar pel feed."
+          "body": "La meva app sobre celiaquia té la seva pròpia comunitat, així que també podem plantejar-hi alguna cosa i no només al feed."
         }
       ]
     },
     "brands": {
       "title": "Marques amb qui he treballat",
-      "note": "La llista és curta a propòsit: només surto amb marques que faria servir igualment.",
+      "note": "Col·laboracions que he fet fins ara.",
       "items": [
         {
           "name": "Natulim",
@@ -277,7 +277,7 @@
     },
     "cta": {
       "title": "Parlem?",
-      "body": "Explica'm què tens al cap. Escric jo i contesto jo, sense agència pel mig.",
+      "body": "Explica'm què tens al cap i mirem juntes com encaixar-ho. M'escrius a mi directament i et responc jo.",
       "email": "Escriu-me un email",
       "instagram": "O per Instagram"
     }

@@ -206,31 +206,31 @@
   "mediaKit": {
     "meta": {
       "title": "Media kit",
-      "description": "Numbers, audience and formats for @glutenfreemarta. For brands that want to know who they are talking to before they write."
+      "description": "Numbers, audience and formats for @glutenfreemarta. Everything you need to weigh up a collaboration."
     },
     "hero": {
       "eyebrow": "Media kit",
-      "headline": "The numbers, unretouched.",
-      "body": "If you got this far, you are thinking about a collaboration. Here is what there is: how many people read me, who they are, and what I can do. The data comes straight from Instagram and updates itself, so it is not a screenshot of my best month.",
+      "headline": "A community that trusts what I tell them.",
+      "body": "I'm glad you're here. This page has everything you need to decide: how many people read me, who they are, and the formats I work in. The data comes straight from Instagram and updates itself, so you are always seeing the real picture right now.",
       "imageAlt": "Marta, illustration"
     },
     "numbers": {
       "eyebrow": "The data",
-      "title": "What happened in the last {days} days",
+      "title": "The last {days} days",
       "followers": "Followers",
       "reach": "Accounts reached",
       "views": "Views",
       "interactions": "Interactions",
       "shares": "Shares",
       "saves": "Saves",
-      "note": "Straight from Instagram Insights. Meta only keeps {days} days, so this is everything I can show — and it is exactly what there is."
+      "note": "Straight from Instagram Insights, no screenshots and no rounding. Meta keeps {days} days of history, so this is always the most recent picture."
     },
     "audience": {
       "title": "Who is on the other side",
       "women": "Women",
       "topAge": "Main age range",
       "countries": "Where they read me from",
-      "note": "People who do the shopping, read labels and ask the group chat which bread does not taste like cardboard. If your product is gluten free, they are already looking for it."
+      "note": "Mostly women who do the household shopping and read every label before anything goes in the trolley. When they find a product that works for them they stick with it and recommend it — shopping gluten free is daily work, and they are grateful to whoever makes it easier."
     },
     "topPosts": {
       "title": "What worked best",
@@ -245,29 +245,29 @@
       "items": [
         {
           "title": "Reel",
-          "body": "What works best here: the product in a real situation, not on a set. If I would not eat it, I do not film it."
+          "body": "The format that reaches furthest for me: your product in an everyday situation, told naturally, with the recipe or the tip that gives it a point."
         },
         {
           "title": "Carousel",
-          "body": "For when there is something to actually explain: ingredients, certification, why that \"gluten free\" can be trusted."
+          "body": "For when there is something to explain properly: ingredients, certifications, what sets your product apart. It is the format that gets saved the most."
         },
         {
           "title": "Stories with a link",
-          "body": "A series of stories with a direct link and a code if there is one. They stay in highlights instead of vanishing after 24 hours."
+          "body": "A run of stories with a direct link, and a discount code if there is one. I pin them to highlights, so they keep bringing visits long after the 24 hours are up."
         },
         {
           "title": "An honest review",
-          "body": "I try the product and say how it went. If it is bad I will say so, and that is exactly why people believe me when it is good."
+          "body": "I try the product and share how it really went. That honesty is exactly why my community trusts me when I recommend something, and why it works so well."
         },
         {
           "title": "A spot in CeroGluten Lab",
-          "body": "My app has an audience of its own, and not everything has to go through the feed."
+          "body": "My coeliac app has a community of its own, so we can plan something there too, not only in the feed."
         }
       ]
     },
     "brands": {
       "title": "Brands I have worked with",
-      "note": "The list is short on purpose: I only show up with brands I would use anyway.",
+      "note": "Collaborations so far.",
       "items": [
         {
           "name": "Natulim",
@@ -277,7 +277,7 @@
     },
     "cta": {
       "title": "Shall we talk?",
-      "body": "Tell me what you have in mind. I write and I reply myself, with no agency in between.",
+      "body": "Tell me what you have in mind and we will work out how to make it fit. You write to me directly, and I am the one who replies.",
       "email": "Send me an email",
       "instagram": "Or reach me on Instagram"
     }
