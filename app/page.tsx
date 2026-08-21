@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import InstagramFeed from "@/components/InstagramFeed";
+import TrackedLink from "@/components/TrackedLink";
 import { getDictionary, getLocale } from "@/lib/i18n/server";
 import { INSTAGRAM_URL, ROUTES } from "@/lib/site";
 
@@ -21,14 +22,16 @@ export default async function HomePage() {
             {home.hero.body}
           </p>
           <div className="flex flex-wrap gap-4">
-            <a
+            <TrackedLink
               href={INSTAGRAM_URL}
+              event="instagram_click"
+              params={{ link_location: "hero" }}
               target="_blank"
               rel="noopener noreferrer"
               className="rounded-full bg-pink px-7 py-4 font-bold text-white transition-opacity hover:opacity-90"
             >
               {home.hero.ctaInstagram}
-            </a>
+            </TrackedLink>
             <Link
               href={ROUTES.lab}
               className="rounded-full border-2 border-ink px-7 py-3.5 font-bold text-ink transition-colors hover:bg-ink hover:text-cream"

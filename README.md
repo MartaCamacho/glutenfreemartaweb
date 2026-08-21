@@ -158,6 +158,58 @@ language switcher.
 describes what the GTM container holds today: Google Analytics.** Adding an ads
 tag or a pixel there makes that page wrong, so update it in the same go.
 
+### What the site sends
+
+GTM gets one seeded value and five events. The seed rides inside the GTM
+snippet itself so it is set before `gtm.js` runs and reaches the first
+`page_view`:
+
+| Event | Parameters |
+|---|---|
+| *(seed)* | `site_language`: `es` \| `en` \| `ca` |
+| `store_click` | `store`: `app_store` \| `google_play` |
+| `instagram_click` | `link_location`: `nav`, `nav_mobile`, `hero`, `feed`, `feed_post`, `lab_cta`, `contact`, `media_kit`, `media_kit_post` (+ `post_id` on posts) |
+| `email_click` | `link_location`: `contact`, `contact_fallback`, `media_kit` |
+| `contact_submit`, `contact_copy` | — |
+| `language_change` | `new_language`, and re-pushes `site_language` |
+
+Three of these exist because nothing measures them for us. GA4 enhanced
+measurement only sees clicks on `<a>` elements pointing at another http(s)
+domain, so it misses the contact form (a `mailto:` navigation fired from
+JavaScript), every `mailto:` link, and it can never say *where* on the page a
+link was clicked. `components/TrackedLink.tsx` exists because almost every
+outbound link lives in a server component, which cannot carry an `onClick`.
+
+Avoid naming a parameter just `language`: GA4 already collects one with that
+name (the browser's) and the two get confused.
+
+### Setting up GA4 and the container
+
+The container is published but **empty** — 0 tags, 0 triggers, 0 variables — so
+nothing is being recorded yet. In order:
+
+1. **GA4** → create the property and a web data stream for the domain, note the
+   measurement ID `G-XXXXXXX`.
+2. Keep **enhanced measurement** on, including *page changes based on browser
+   history events*. That is what counts internal navigation: the App Router
+   moves with `pushState`, it does not reload.
+3. Set **data retention to 14 months**. It defaults to 2 and is not
+   retroactive — whatever is dropped is gone.
+4. **Custom definitions**, event-scoped, one per parameter: `site_language`,
+   `link_location`, `store`, `new_language`, `post_id`. Without these the
+   parameters arrive but no report can show them.
+5. Mark `contact_submit` and `store_click` as **key events**.
+6. **Exclude internal traffic** by IP in the stream settings, or your own
+   testing pollutes the numbers.
+7. **GTM** → one data layer variable per parameter above; a Google (GA4) tag on
+   *Initialization – All Pages* carrying `site_language`; then one custom event
+   trigger and one GA4 event tag per row of the table. Preview, then publish.
+
+Consent Mode needs no setup: GTM is never loaded without permission, so the
+block happens earlier.
+
+Expect these numbers to undercount. **Only visitors who accept are measured.**
+
 ## Planned pages
 
 Not designed yet — the handoff does not cover it, so it needs a look that

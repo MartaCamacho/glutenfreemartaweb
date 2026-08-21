@@ -1,4 +1,5 @@
 import Image from "next/image";
+import TrackedLink from "@/components/TrackedLink";
 import type { Locale } from "@/lib/i18n/config";
 import type { Dictionary } from "@/lib/i18n/server";
 import { captionHeadline } from "@/lib/instagram-api";
@@ -43,8 +44,10 @@ function LivePost({
   }).format(new Date(post.timestamp));
 
   return (
-    <a
+    <TrackedLink
       href={post.permalink}
+      event="instagram_click"
+      params={{ link_location: "feed_post", post_id: post.id }}
       target="_blank"
       rel="noopener noreferrer"
       className={`${CARD_CLASS} overflow-hidden transition-transform hover:-translate-y-1`}
@@ -65,7 +68,7 @@ function LivePost({
         <p className={`${TITLE_CLASS} line-clamp-2`}>{title}</p>
         <span className="text-sm text-ink-muted">{date}</span>
       </div>
-    </a>
+    </TrackedLink>
   );
 }
 
@@ -104,14 +107,16 @@ export default async function InstagramFeed({
           <h2 className="max-w-[560px] font-display text-[clamp(28px,3.5vw,42px)] font-extrabold leading-[1.15]">
             {dict.title}
           </h2>
-          <a
+          <TrackedLink
             href={INSTAGRAM_URL}
+            event="instagram_click"
+            params={{ link_location: "feed" }}
             target="_blank"
             rel="noopener noreferrer"
             className="whitespace-nowrap font-bold text-pink transition-colors hover:text-pink-hover"
           >
             {dict.link}
-          </a>
+          </TrackedLink>
         </div>
 
         <div className="grid gap-6 [grid-template-columns:repeat(auto-fit,minmax(260px,1fr))]">

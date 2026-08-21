@@ -1,4 +1,5 @@
 import Link from "next/link";
+import TrackedLink from "@/components/TrackedLink";
 import type { Dictionary } from "@/lib/i18n/server";
 import { INSTAGRAM_URL, ROUTES } from "@/lib/site";
 
@@ -48,14 +49,16 @@ export default function Footer({
           </div>
           <div className="flex flex-col gap-2.5 text-[15px]">
             <span className="mb-1 font-bold text-white">{dict.follow}</span>
-            <a
+            <TrackedLink
               href={INSTAGRAM_URL}
+              event="instagram_click"
+              params={{ link_location: "footer" }}
               target="_blank"
               rel="noopener noreferrer"
               className="text-footer-link transition-colors hover:text-white"
             >
               {dict.instagram}
-            </a>
+            </TrackedLink>
           </div>
         </div>
       </div>
