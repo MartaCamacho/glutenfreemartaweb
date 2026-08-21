@@ -97,7 +97,6 @@ export function captionHeadline(
 export type LoadOptions = {
   token: string | undefined;
   apiBase: string;
-  count: number;
   revalidateSeconds: number;
   fetchImpl?: typeof fetch;
 };
@@ -106,11 +105,14 @@ export type LoadOptions = {
  * Never throws. A missing token, a Meta outage or an expired token all return
  * null, which the feed section reads as "show the sample posts instead" rather
  * than taking the home page down with it.
+ *
+ * Returns the whole fetched window, not just the four the home page shows: the
+ * image proxy resolves ids against this list, and the media kit picks its best
+ * posts from further down it.
  */
 export async function loadInstagramPosts({
   token,
   apiBase,
-  count,
   revalidateSeconds,
   fetchImpl = fetch,
 }: LoadOptions): Promise<ResolvedPost[] | null> {
@@ -131,7 +133,7 @@ export async function loadInstagramPosts({
     }
 
     const body: { data?: ApiMedia[] } = await response.json();
-    const posts = selectPosts(body.data ?? [], count);
+    const posts = selectPosts(body.data ?? [], FETCH_LIMIT);
 
     return posts.length > 0 ? posts : null;
   } catch (error) {
