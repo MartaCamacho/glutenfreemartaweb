@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import ContactForm from "@/components/ContactForm";
+import TrackedLink from "@/components/TrackedLink";
 import { getDictionary } from "@/lib/i18n/server";
 import { CONTACT_EMAIL, INSTAGRAM_HANDLE, INSTAGRAM_URL } from "@/lib/site";
 
@@ -31,26 +32,30 @@ export default async function ContactPage() {
             <p className="mb-2 font-display text-[17px] font-bold">
               {contact.cards.instagram}
             </p>
-            <a
+            <TrackedLink
               href={INSTAGRAM_URL}
+              event="instagram_click"
+              params={{ link_location: "contact" }}
               target="_blank"
               rel="noopener noreferrer"
               className="text-[16px] text-pink hover:text-pink-hover"
             >
               {INSTAGRAM_HANDLE}
-            </a>
+            </TrackedLink>
           </div>
 
           <div className="rounded-card bg-green-soft p-7">
             <p className="mb-2 font-display text-[17px] font-bold">
               {contact.cards.email}
             </p>
-            <a
+            <TrackedLink
               href={`mailto:${CONTACT_EMAIL}`}
+              event="email_click"
+              params={{ link_location: "contact" }}
               className="text-[16px] text-green hover:underline"
             >
               {CONTACT_EMAIL}
-            </a>
+            </TrackedLink>
           </div>
 
           <p className="text-sm leading-[1.6] text-ink-muted">

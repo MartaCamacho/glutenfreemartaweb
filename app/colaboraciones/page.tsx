@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import TrackedLink from "@/components/TrackedLink";
 import {
   MediaKitAudience,
   MediaKitNumbers,
@@ -107,9 +108,11 @@ export default async function MediaKitPage() {
                 );
 
                 return (
-                  <a
+                  <TrackedLink
                     key={post.id}
                     href={post.permalink}
+                    event="instagram_click"
+                    params={{ link_location: "media_kit_post", post_id: post.id }}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex flex-col overflow-hidden rounded-card bg-white shadow-card transition-transform hover:-translate-y-1"
@@ -154,7 +157,7 @@ export default async function MediaKitPage() {
                         </div>
                       </dl>
                     </div>
-                  </a>
+                  </TrackedLink>
                 );
               })}
             </div>
@@ -212,20 +215,24 @@ export default async function MediaKitPage() {
           {mediaKit.cta.body}
         </p>
         <div className="flex flex-wrap justify-center gap-4">
-          <a
+          <TrackedLink
             href={`mailto:${CONTACT_EMAIL}`}
+            event="email_click"
+            params={{ link_location: "media_kit" }}
             className="rounded-full bg-pink px-7 py-4 font-bold text-white transition-opacity hover:opacity-90"
           >
             {mediaKit.cta.email}
-          </a>
-          <a
+          </TrackedLink>
+          <TrackedLink
             href={INSTAGRAM_URL}
+            event="instagram_click"
+            params={{ link_location: "media_kit" }}
             target="_blank"
             rel="noopener noreferrer"
             className="rounded-full border-2 border-white px-7 py-3.5 font-bold text-white transition-colors hover:bg-white hover:text-ink"
           >
             {mediaKit.cta.instagram}
-          </a>
+          </TrackedLink>
         </div>
       </section>
     </>

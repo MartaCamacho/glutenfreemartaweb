@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import LocaleSwitcher from "@/components/LocaleSwitcher";
+import TrackedLink from "@/components/TrackedLink";
 import type { Locale } from "@/lib/i18n/config";
 import type { Dictionary } from "@/lib/i18n/server";
 import { INSTAGRAM_URL, ROUTES } from "@/lib/site";
@@ -58,14 +59,16 @@ export default function Nav({
               {link.label}
             </Link>
           ))}
-          <a
+          <TrackedLink
             href={INSTAGRAM_URL}
+            event="instagram_click"
+            params={{ link_location: "nav" }}
             target="_blank"
             rel="noopener noreferrer"
             className="rounded-full bg-ink px-5 py-2.5 text-cream transition-opacity hover:opacity-85"
           >
             {dict.instagram}
-          </a>
+          </TrackedLink>
           <LocaleSwitcher current={locale} label={dict.language} />
         </div>
 
@@ -114,14 +117,16 @@ export default function Nav({
               {link.label}
             </Link>
           ))}
-          <a
+          <TrackedLink
             href={INSTAGRAM_URL}
+            event="instagram_click"
+            params={{ link_location: "nav_mobile" }}
             target="_blank"
             rel="noopener noreferrer"
             className="mt-3 rounded-full bg-ink px-5 py-3 text-center text-cream"
           >
             {dict.instagram}
-          </a>
+          </TrackedLink>
           <div className="mt-4 border-t border-line pt-4">
             <LocaleSwitcher current={locale} label={dict.language} />
           </div>

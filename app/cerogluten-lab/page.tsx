@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import TrackedLink from "@/components/TrackedLink";
 import { getDictionary } from "@/lib/i18n/server";
 import { APP_STORE_URL, GOOGLE_PLAY_URL, INSTAGRAM_URL } from "@/lib/site";
 
@@ -28,22 +29,26 @@ export default async function LabPage() {
             {/* Both stores, on every device: visitors share these links and
                 switch platforms, so never hide one behind UA sniffing. */}
             <div className="flex flex-wrap gap-4">
-              <a
+              <TrackedLink
                 href={APP_STORE_URL}
+                event="store_click"
+                params={{ store: "app_store" }}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="rounded-full bg-ink px-7 py-4 font-bold text-white transition-opacity hover:opacity-85"
               >
                 {lab.hero.appStore}
-              </a>
-              <a
+              </TrackedLink>
+              <TrackedLink
                 href={GOOGLE_PLAY_URL}
+                event="store_click"
+                params={{ store: "google_play" }}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="rounded-full border-2 border-ink px-7 py-3.5 font-bold text-ink transition-colors hover:bg-ink hover:text-cream"
               >
                 {lab.hero.googlePlay}
-              </a>
+              </TrackedLink>
             </div>
           </div>
 
@@ -90,14 +95,16 @@ export default async function LabPage() {
         <p className="mx-auto mb-6 max-w-[700px] font-display text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15]">
           {lab.cta.title}
         </p>
-        <a
+        <TrackedLink
           href={INSTAGRAM_URL}
+          event="instagram_click"
+          params={{ link_location: "lab_cta" }}
           target="_blank"
           rel="noopener noreferrer"
           className="inline-block rounded-full bg-pink px-7 py-4 font-bold text-white transition-opacity hover:opacity-90"
         >
           {lab.cta.button}
-        </a>
+        </TrackedLink>
       </section>
     </>
   );

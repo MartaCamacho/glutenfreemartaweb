@@ -1,6 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import TrackedLink from "@/components/TrackedLink";
+import { pushToDataLayer } from "@/lib/gtm";
 import type { Dictionary } from "@/lib/i18n/server";
 import { CONTACT_EMAIL } from "@/lib/site";
 
@@ -22,6 +24,8 @@ export default function ContactForm({
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    // A mailto: navigation is not a link click, so nothing tracks it for us.
+    pushToDataLayer({ event: "contact_submit" });
     const subject = `${dict.subject} ${name}`;
     window.location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(
       subject,
@@ -30,6 +34,7 @@ export default function ContactForm({
   }
 
   async function handleCopy() {
+    pushToDataLayer({ event: "contact_copy" });
     await navigator.clipboard.writeText(body);
     setCopied(true);
   }
@@ -107,12 +112,14 @@ export default function ContactForm({
           <p className="mb-2 font-bold">{dict.openedTitle}</p>
           <p className="text-ink-muted">
             {dict.openedBody}{" "}
-            <a
+            <TrackedLink
               href={`mailto:${CONTACT_EMAIL}`}
+              event="email_click"
+              params={{ link_location: "contact_fallback" }}
               className="font-bold text-pink hover:text-pink-hover"
             >
               {CONTACT_EMAIL}
-            </a>
+            </TrackedLink>
             .
           </p>
           <button
