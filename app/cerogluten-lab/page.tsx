@@ -27,19 +27,18 @@ export default async function LabPage() {
             </p>
             {/* Both stores, on every device: visitors share these links and
                 switch platforms, so never hide one behind UA sniffing. */}
+            {/* No target="_blank": apps.apple.com redirects to itms-appss://,
+                and Instagram's in-app browser drops that scheme switch when it
+                lands in a secondary window. */}
             <div className="flex flex-wrap gap-4">
               <a
                 href={APP_STORE_URL}
-                target="_blank"
-                rel="noopener noreferrer"
                 className="rounded-full bg-ink px-7 py-4 font-bold text-white transition-opacity hover:opacity-85"
               >
                 {lab.hero.appStore}
               </a>
               <a
                 href={GOOGLE_PLAY_URL}
-                target="_blank"
-                rel="noopener noreferrer"
                 className="rounded-full border-2 border-ink px-7 py-3.5 font-bold text-ink transition-colors hover:bg-ink hover:text-cream"
               >
                 {lab.hero.googlePlay}
