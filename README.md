@@ -44,10 +44,12 @@ what catches a missing dictionary key.
 ```
 app/                 routes: /, /sobre-mi, /cerogluten-lab, /contacto
 app/colaboraciones/  the media kit; unlisted and noindex
+app/links/           the link in bio; where the Instagram profile points
 app/icon.svg         favicon; app/apple-icon.png is the touch icon
 app/api/instagram/   image proxy for the feed
 components/          Nav, Footer, LocaleSwitcher, ContactForm, InstagramFeed
 lib/site.ts          links, email, routes
+lib/links.ts         the discount codes and affiliate links behind /links
 lib/instagram.ts     the live feed
 lib/instagram-stats.ts  the media kit's audience numbers
 lib/i18n/            locale detection, dictionaries (es, en, ca)
@@ -158,15 +160,27 @@ language switcher.
 describes what the GTM container holds today: Google Analytics.** Adding an ads
 tag or a pixel there makes that page wrong, so update it in the same go.
 
-## Planned pages
+## Link in bio
 
-Not designed yet — the handoff does not cover it, so it needs a look that
-matches without a reference to copy.
+`/links` is where the Instagram profile points. It is deliberately narrow at
+every width and never becomes two columns: nearly every visit is a thumb tap
+inside Instagram's in-app browser.
 
-- **Link in bio** — the single link the Instagram profile points at, collecting
-  whatever is current: CeroGluten Lab, discount codes (Natulim to start with,
-  more later), and posts worth surfacing. The codes want one generic component
-  driven by a list, not a block per brand. URL still undecided; `/links` is the
-  most common convention and works unchanged in all three languages, unlike
-  `/instagram`, which reads like it leaves the site.
-(The media kit, which used to be listed here, is built — see above.)
+Brands, codes and URLs live in `lib/links.ts`, not in the dictionaries — they
+read the same in the three languages, and duplicating a discount URL across
+three files invites a typo that costs money. Only the descriptions get
+translated, keyed by `id`. That key is typed against the dictionary, so adding
+a brand without its copy fails the build.
+
+Adding a discount is one entry in `DISCOUNTS` plus its `description` in the
+three dictionaries. Set `affiliate: true` when the link pays a commission: the
+disclosure note at the foot of the page renders only when at least one of them
+does, so it never claims a commission that is not earned.
+
+The store buttons repeat the no-`target="_blank"` rule from the Lab page, and
+for the same reason — this page is the one that actually lives inside the
+in-app browser that rule exists for.
+
+The page is linked from the footer only. It is not in the nav: it collects the
+same destinations the nav already offers, and it is meant to be arrived at, not
+navigated to.

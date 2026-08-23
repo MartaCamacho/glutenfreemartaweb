@@ -18,7 +18,8 @@
     "follow": "Follow me",
     "instagram": "Instagram",
     "copyright": "© 2026 Glutenfreemarta",
-    "cookies": "Cookies"
+    "cookies": "Cookies",
+    "links": "Links"
   },
   "home": {
     "hero": {
@@ -281,5 +282,51 @@
       "email": "Send me an email",
       "instagram": "Or reach me on Instagram"
     }
+  },
+  "links": {
+    "meta": {
+      "title": "Links",
+      "description": "The discount codes I have live, my app and whatever I'm recommending. All in one place, no digging through expired stories."
+    },
+    "hero": {
+      "eyebrow": "All in one place",
+      "headline": "What I promised you\nin stories.",
+      "body": "Here's what I'm recommending right now: my app and the codes that work today. When one expires, I take it down — so you don't have to dig through stories from three weeks ago.",
+      "imageAlt": "Marta, illustration"
+    },
+    "lab": {
+      "eyebrow": "My app",
+      "title": "CeroGluten Lab",
+      "body": "Learn about coeliac disease without the boring manuals. Free, on both stores.",
+      "appStore": "App Store",
+      "googlePlay": "Google Play"
+    },
+    "discounts": {
+      "eyebrow": "Discounts",
+      "title": "Codes that work today",
+      "codeLabel": "Code",
+      "copy": "Copy",
+      "copied": "Copied",
+      "cta": "Go to {brand}",
+      "items": {
+        "natulim": {
+          "description": "Laundry detergent sheets: no plastic, no five-kilo bottles and no wrecking your back on the way home."
+        }
+      }
+    },
+    "more": {
+      "title": "More things",
+      "items": {
+        "instagram": {
+          "title": "Follow me on Instagram",
+          "body": "Where all of this gets told first."
+        },
+        "contact": {
+          "title": "Are you a brand?",
+          "body": "Write to me and let's talk about working together."
+        }
+      }
+    },
+    "disclosure": "Some of these are affiliate links: if you buy, I get a commission and it costs you nothing extra. I only recommend things I use."
   }
 }
