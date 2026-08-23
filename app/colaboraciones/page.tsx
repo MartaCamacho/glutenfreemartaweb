@@ -214,7 +214,7 @@ export default async function MediaKitPage() {
         <div className="flex flex-wrap justify-center gap-4">
           <a
             href={`mailto:${CONTACT_EMAIL}`}
-            className="rounded-full bg-pink px-7 py-4 font-bold text-white transition-opacity hover:opacity-90"
+            className="pressable rounded-full bg-pink px-7 py-4 font-bold text-white hover:opacity-90"
           >
             {mediaKit.cta.email}
           </a>
@@ -222,7 +222,7 @@ export default async function MediaKitPage() {
             href={INSTAGRAM_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-full border-2 border-white px-7 py-3.5 font-bold text-white transition-colors hover:bg-white hover:text-ink"
+            className="pressable rounded-full border-2 border-white px-7 py-3.5 font-bold text-white hover:bg-white hover:text-ink"
           >
             {mediaKit.cta.instagram}
           </a>

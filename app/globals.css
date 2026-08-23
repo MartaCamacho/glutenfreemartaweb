@@ -53,6 +53,24 @@
   }
 }
 
+/* A button that answers the finger. The tap highlight is dropped because on
+   iOS its grey box fights the scale and the press reads as a glitch. */
+@utility pressable {
+  transition-property: transform, opacity, color, background-color, border-color;
+  transition-duration: 150ms;
+  -webkit-tap-highlight-color: transparent;
+
+  &:active {
+    transform: scale(0.97);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    &:active {
+      transform: none;
+    }
+  }
+}
+
 body {
   background: var(--color-cream);
   color: var(--color-ink);

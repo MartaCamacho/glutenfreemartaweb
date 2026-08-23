@@ -25,13 +25,13 @@ export default async function HomePage() {
               href={INSTAGRAM_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-full bg-pink px-7 py-4 font-bold text-white transition-opacity hover:opacity-90"
+              className="pressable rounded-full bg-pink px-7 py-4 font-bold text-white hover:opacity-90"
             >
               {home.hero.ctaInstagram}
             </a>
             <Link
               href={ROUTES.lab}
-              className="rounded-full border-2 border-ink px-7 py-3.5 font-bold text-ink transition-colors hover:bg-ink hover:text-cream"
+              className="pressable rounded-full border-2 border-ink px-7 py-3.5 font-bold text-ink hover:bg-ink hover:text-cream"
             >
               {home.hero.ctaLab}
             </Link>
@@ -93,7 +93,7 @@ export default async function HomePage() {
           </p>
           <Link
             href={ROUTES.lab}
-            className="inline-block rounded-full bg-ink px-7 py-4 font-bold text-white transition-opacity hover:opacity-85"
+            className="pressable inline-block rounded-full bg-ink px-7 py-4 font-bold text-white hover:opacity-85"
           >
             {home.lab.cta}
           </Link>

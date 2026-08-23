@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import AppStoreLink from "@/components/AppStoreLink";
 import { getDictionary } from "@/lib/i18n/server";
-import { APP_STORE_URL, GOOGLE_PLAY_URL, INSTAGRAM_URL } from "@/lib/site";
+import { GOOGLE_PLAY_URL, INSTAGRAM_URL } from "@/lib/site";
 
 export async function generateMetadata(): Promise<Metadata> {
   const { lab } = await getDictionary();
@@ -31,15 +32,12 @@ export default async function LabPage() {
                 and Instagram's in-app browser drops that scheme switch when it
                 lands in a secondary window. */}
             <div className="flex flex-wrap gap-4">
-              <a
-                href={APP_STORE_URL}
-                className="rounded-full bg-ink px-7 py-4 font-bold text-white transition-opacity hover:opacity-85"
-              >
+              <AppStoreLink className="pressable rounded-full bg-ink px-7 py-4 font-bold text-white hover:opacity-85">
                 {lab.hero.appStore}
-              </a>
+              </AppStoreLink>
               <a
                 href={GOOGLE_PLAY_URL}
-                className="rounded-full border-2 border-ink px-7 py-3.5 font-bold text-ink transition-colors hover:bg-ink hover:text-cream"
+                className="pressable rounded-full border-2 border-ink px-7 py-3.5 font-bold text-ink hover:bg-ink hover:text-cream"
               >
                 {lab.hero.googlePlay}
               </a>
@@ -93,7 +91,7 @@ export default async function LabPage() {
           href={INSTAGRAM_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-block rounded-full bg-pink px-7 py-4 font-bold text-white transition-opacity hover:opacity-90"
+          className="pressable inline-block rounded-full bg-pink px-7 py-4 font-bold text-white hover:opacity-90"
         >
           {lab.cta.button}
         </a>

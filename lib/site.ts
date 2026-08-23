@@ -15,6 +15,15 @@ export const CONTACT_EMAIL = "glutenfreemarta@gmail.com";
 /** No storefront segment: Apple resolves it against the visitor's own store. */
 export const APP_STORE_URL = "https://apps.apple.com/app/id6767042384";
 
+/**
+ * The store's own scheme. Every https form of the link answers iOS with a 301
+ * to itms-appss://, and a WebView that cannot hand that scheme to the system
+ * drops the navigation silently. Going straight to the scheme skips the 301,
+ * which is the hop that dies.
+ */
+export const APP_STORE_SCHEME_URL =
+  "itms-apps://apps.apple.com/app/id6767042384";
+
 export const GOOGLE_PLAY_URL =
   "https://play.google.com/store/apps/details?id=com.camaca.games.ceroglutenlab";
 
@@ -28,4 +37,7 @@ export const ROUTES = {
   cookies: "/cookies",
   // Unlisted on purpose: shared with brands directly, never linked or indexed.
   mediaKit: "/colaboraciones",
+  // Unlisted too: where the store button lands when Meta's in-app browser
+  // refuses the App Store handoff.
+  download: "/descargar",
 } as const;

@@ -90,7 +90,7 @@ export default function ContactForm({
 
         <button
           type="submit"
-          className="mt-2 cursor-pointer rounded-full bg-pink px-4 py-4 font-bold text-white transition-opacity hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink"
+          className="pressable mt-2 cursor-pointer rounded-full bg-pink px-4 py-4 font-bold text-white hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink"
         >
           {dict.submit}
         </button>
@@ -118,7 +118,7 @@ export default function ContactForm({
           <button
             type="button"
             onClick={handleCopy}
-            className="mt-4 cursor-pointer rounded-full border-2 border-ink px-5 py-2.5 text-sm font-bold text-ink transition-colors hover:bg-ink hover:text-cream"
+            className="pressable mt-4 cursor-pointer rounded-full border-2 border-ink px-5 py-2.5 text-sm font-bold text-ink hover:bg-ink hover:text-cream"
           >
             {copied ? dict.copied : dict.copy}
           </button>
