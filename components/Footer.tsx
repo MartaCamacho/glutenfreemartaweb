@@ -13,6 +13,7 @@ export default function Footer({
     { href: ROUTES.about, label: navDict.about },
     { href: ROUTES.lab, label: navDict.lab },
     { href: ROUTES.contact, label: navDict.contact },
+    { href: ROUTES.links, label: dict.links },
   ];
 
   return (

@@ -18,7 +18,8 @@
     "follow": "Sígueme",
     "instagram": "Instagram",
     "copyright": "© 2026 Glutenfreemarta",
-    "cookies": "Cookies"
+    "cookies": "Cookies",
+    "links": "Enlaces"
   },
   "home": {
     "hero": {
@@ -281,5 +282,51 @@
       "email": "Escríbeme un email",
       "instagram": "O por Instagram"
     }
+  },
+  "links": {
+    "meta": {
+      "title": "Enlaces",
+      "description": "Los códigos de descuento que tengo activos, mi app y lo que voy recomendando. Todo en un sitio, sin rebuscar entre stories caducadas."
+    },
+    "hero": {
+      "eyebrow": "Todo en un sitio",
+      "headline": "Lo que te prometí\nen stories.",
+      "body": "Aquí tienes lo que ando recomendando: mi app y los códigos que funcionan hoy. Cuando algo caduca, lo quito — así no tienes que rebuscar entre historias de hace tres semanas.",
+      "imageAlt": "Marta, ilustración"
+    },
+    "lab": {
+      "eyebrow": "Mi app",
+      "title": "CeroGluten Lab",
+      "body": "Aprender sobre celiaquía sin manuales aburridos. Gratis, en las dos tiendas.",
+      "appStore": "App Store",
+      "googlePlay": "Google Play"
+    },
+    "discounts": {
+      "eyebrow": "Descuentos",
+      "title": "Códigos que funcionan hoy",
+      "codeLabel": "Código",
+      "copy": "Copiar",
+      "copied": "Copiado",
+      "cta": "Ir a {brand}",
+      "items": {
+        "natulim": {
+          "description": "Detergente en láminas: sin plástico, sin garrafas de cinco kilos y sin dejarte la espalda en el súper."
+        }
+      }
+    },
+    "more": {
+      "title": "Más cosas",
+      "items": {
+        "instagram": {
+          "title": "Sígueme en Instagram",
+          "body": "Donde cuento todo esto primero."
+        },
+        "contact": {
+          "title": "¿Eres una marca?",
+          "body": "Escríbeme y hablamos de colaboraciones."
+        }
+      }
+    },
+    "disclosure": "Algunos de estos enlaces son de afiliado: si compras, me llevo una comisión y a ti no te cuesta nada más. Solo recomiendo cosas que uso."
   }
 }

@@ -26,6 +26,9 @@ export const ROUTES = {
   lab: "/cerogluten-lab",
   contact: "/contacto",
   cookies: "/cookies",
+  // Same word in the three languages, unlike /instagram, which reads like it
+  // leaves the site. This is where the Instagram bio points.
+  links: "/links",
   // Unlisted on purpose: shared with brands directly, never linked or indexed.
   mediaKit: "/colaboraciones",
 } as const;

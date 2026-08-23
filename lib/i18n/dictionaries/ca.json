@@ -18,7 +18,8 @@
     "follow": "Segueix-me",
     "instagram": "Instagram",
     "copyright": "© 2026 Glutenfreemarta",
-    "cookies": "Cookies"
+    "cookies": "Cookies",
+    "links": "Enllaços"
   },
   "home": {
     "hero": {
@@ -281,5 +282,51 @@
       "email": "Escriu-me un email",
       "instagram": "O per Instagram"
     }
+  },
+  "links": {
+    "meta": {
+      "title": "Enllaços",
+      "description": "Els codis de descompte que tinc actius, la meva app i el que vaig recomanant. Tot en un lloc, sense remenar entre stories caducades."
+    },
+    "hero": {
+      "eyebrow": "Tot en un lloc",
+      "headline": "El que et vaig prometre\na stories.",
+      "body": "Aquí tens el que vaig recomanant: la meva app i els codis que funcionen avui. Quan alguna cosa caduca, la trec — així no has de remenar entre històries de fa tres setmanes.",
+      "imageAlt": "Marta, il·lustració"
+    },
+    "lab": {
+      "eyebrow": "La meva app",
+      "title": "CeroGluten Lab",
+      "body": "Aprendre sobre celiaquia sense manuals avorrits. Gratis, a les dues botigues.",
+      "appStore": "App Store",
+      "googlePlay": "Google Play"
+    },
+    "discounts": {
+      "eyebrow": "Descomptes",
+      "title": "Codis que funcionen avui",
+      "codeLabel": "Codi",
+      "copy": "Copiar",
+      "copied": "Copiat",
+      "cta": "Anar a {brand}",
+      "items": {
+        "natulim": {
+          "description": "Detergent en làmines: sense plàstic, sense garrafes de cinc quilos i sense destrossar-te l'esquena al súper."
+        }
+      }
+    },
+    "more": {
+      "title": "Més coses",
+      "items": {
+        "instagram": {
+          "title": "Segueix-me a Instagram",
+          "body": "On explico tot això primer."
+        },
+        "contact": {
+          "title": "Ets una marca?",
+          "body": "Escriu-me i parlem de col·laboracions."
+        }
+      }
+    },
+    "disclosure": "Alguns d'aquests enllaços són d'afiliat: si compres, m'enduc una comissió i a tu no et costa res més. Només recomano coses que faig servir."
   }
 }
