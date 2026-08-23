@@ -12,8 +12,8 @@ export const MEDIA_KIT_POST_COUNT = 3;
 export const MEDIA_KIT_COUNTRY_COUNT = 4;
 export const CONTACT_EMAIL = "glutenfreemarta@gmail.com";
 
-export const APP_STORE_URL =
-  "https://apps.apple.com/us/app/cerogluten-lab/id6767042384";
+/** No storefront segment: Apple resolves it against the visitor's own store. */
+export const APP_STORE_URL = "https://apps.apple.com/app/id6767042384";
 
 export const GOOGLE_PLAY_URL =
   "https://play.google.com/store/apps/details?id=com.camaca.games.ceroglutenlab";
