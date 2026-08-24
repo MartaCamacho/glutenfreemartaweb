@@ -30,7 +30,7 @@ export default function CookieBanner({
             type="submit"
             name="consent"
             value="rejected"
-            className="cursor-pointer rounded-full border-2 border-ink px-6 py-2.5 text-sm font-bold text-ink transition-colors hover:bg-ink hover:text-cream"
+            className="pressable cursor-pointer rounded-full border-2 border-ink px-6 py-2.5 text-sm font-bold text-ink hover:bg-ink hover:text-cream"
           >
             {dict.reject}
           </button>
@@ -38,7 +38,7 @@ export default function CookieBanner({
             type="submit"
             name="consent"
             value="accepted"
-            className="cursor-pointer rounded-full border-2 border-pink bg-pink px-6 py-2.5 text-sm font-bold text-white transition-opacity hover:opacity-90"
+            className="pressable cursor-pointer rounded-full border-2 border-pink bg-pink px-6 py-2.5 text-sm font-bold text-white hover:opacity-90"
           >
             {dict.accept}
           </button>

@@ -62,7 +62,7 @@ export default function Nav({
             href={INSTAGRAM_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-full bg-ink px-5 py-2.5 text-cream transition-opacity hover:opacity-85"
+            className="pressable rounded-full bg-ink px-5 py-2.5 text-cream hover:opacity-85"
           >
             {dict.instagram}
           </a>
@@ -75,7 +75,7 @@ export default function Nav({
           aria-expanded={open}
           aria-controls="mobile-menu"
           aria-label={open ? dict.closeMenu : dict.openMenu}
-          className="flex h-10 w-10 cursor-pointer flex-col items-center justify-center gap-[5px] rounded-full text-ink md:hidden"
+          className="pressable flex h-10 w-10 cursor-pointer flex-col items-center justify-center gap-[5px] rounded-full text-ink md:hidden"
         >
           <span
             className={`block h-[2px] w-5 bg-current transition-transform ${
@@ -118,7 +118,7 @@ export default function Nav({
             href={INSTAGRAM_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-3 rounded-full bg-ink px-5 py-3 text-center text-cream"
+            className="pressable mt-3 rounded-full bg-ink px-5 py-3 text-center text-cream"
           >
             {dict.instagram}
           </a>

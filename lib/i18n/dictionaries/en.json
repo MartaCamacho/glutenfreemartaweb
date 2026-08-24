@@ -145,6 +145,20 @@
       "button": "@glutenfreemarta"
     }
   },
+  "download": {
+    "meta": {
+      "title": "Download CeroGluten Lab",
+      "description": "Opening the App Store to download CeroGluten Lab."
+    },
+    "opening": "Opening the App Store…",
+    "blocked": {
+      "title": "Instagram won't let you download the app",
+      "body": "Its browser swallows the App Store link and never lets go. Not my doing — theirs.",
+      "steps": "Tap the ··· at the top right and pick \"Open in browser\". From there it works."
+    },
+    "copy": "Copy link",
+    "copied": "Copied!"
+  },
   "contact": {
     "meta": {
       "title": "Contact",
