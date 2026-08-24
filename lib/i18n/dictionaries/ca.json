@@ -150,11 +150,11 @@
       "title": "Descarregar CeroGluten Lab",
       "description": "Obrint l'App Store per descarregar CeroGluten Lab."
     },
-    "opening": "Obrint l'App Store…",
+    "title": "Descarregar CeroGluten Lab",
     "blocked": {
       "title": "Instagram no et deixa baixar l'app",
       "body": "El seu navegador s'empassa l'enllaç de l'App Store i no el deixa anar. No és cosa meva, és cosa seva.",
-      "steps": "Toca els ··· de dalt a la dreta i tria \"Obre al navegador\". Des d'allà sí que va."
+      "steps": "Toca els ··· de dalt a la dreta i tria \"Obre al navegador\". Des d'allà l'App Store s'obre sola."
     },
     "copy": "Copiar enllaç",
     "copied": "Copiat!"

@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import AppStoreLink from "@/components/AppStoreLink";
+import Link from "next/link";
 import { getDictionary } from "@/lib/i18n/server";
-import { GOOGLE_PLAY_URL, INSTAGRAM_URL } from "@/lib/site";
+import { GOOGLE_PLAY_URL, INSTAGRAM_URL, ROUTES } from "@/lib/site";
 
 export async function generateMetadata(): Promise<Metadata> {
   const { lab } = await getDictionary();
@@ -28,13 +28,17 @@ export default async function LabPage() {
             </p>
             {/* Both stores, on every device: visitors share these links and
                 switch platforms, so never hide one behind UA sniffing. */}
-            {/* No target="_blank": apps.apple.com redirects to itms-appss://,
-                and Instagram's in-app browser drops that scheme switch when it
-                lands in a secondary window. */}
+            {/* Apple goes through /descargar: apps.apple.com answers iOS with
+                a redirect to itms-appss://, which Instagram's in-app browser
+                cannot follow, so the tap needs somewhere to land and explain
+                itself. Google Play serves plain HTML and never broke. */}
             <div className="flex flex-wrap gap-4">
-              <AppStoreLink className="pressable rounded-full bg-ink px-7 py-4 font-bold text-white hover:opacity-85">
+              <Link
+                href={ROUTES.download}
+                className="pressable rounded-full bg-ink px-7 py-4 font-bold text-white hover:opacity-85"
+              >
                 {lab.hero.appStore}
-              </AppStoreLink>
+              </Link>
               <a
                 href={GOOGLE_PLAY_URL}
                 className="pressable rounded-full border-2 border-ink px-7 py-3.5 font-bold text-ink hover:bg-ink hover:text-cream"
