@@ -116,15 +116,35 @@ async function rotate() {
   const { envs } = await vercelFetch(
     vercelUrl(`/v10/projects/${projectId}/env`, { decrypt: "true" }),
   );
-  const variable = envs.find((env) => env.key === "INSTAGRAM_ACCESS_TOKEN");
+  // The same key can exist once per target; production is the one the site uses.
+  const matches = envs.filter((env) => env.key === "INSTAGRAM_ACCESS_TOKEN");
+  const variable =
+    matches.find((env) => env.target?.includes("production")) ?? matches[0];
 
   if (!variable) {
     throw new Error("INSTAGRAM_ACCESS_TOKEN is not set on the Vercel project");
   }
 
-  const result = await getJson(
-    `https://graph.instagram.com/refresh_access_token?grant_type=ig_refresh_token&access_token=${variable.value}`,
-  );
+  const stored = variable.value?.trim();
+  if (!stored) {
+    // Vercel refuses to read back a "sensitive" variable, decrypt=true or not.
+    throw new Error(
+      `Vercel returned no value for INSTAGRAM_ACCESS_TOKEN (type: ${variable.type}). ` +
+        "Sensitive variables cannot be read back; recreate it as a normal one.",
+    );
+  }
+
+  let result;
+  try {
+    result = await getJson(
+      `https://graph.instagram.com/refresh_access_token?grant_type=ig_refresh_token&access_token=${stored}`,
+    );
+  } catch (error) {
+    const target = variable.target?.join(", ") ?? "unknown target";
+    throw new Error(
+      `Instagram rejected the token stored on Vercel (${target}): ${error.message}`,
+    );
+  }
 
   await vercelFetch(vercelUrl(`/v9/projects/${projectId}/env/${variable.id}`), {
     method: "PATCH",
