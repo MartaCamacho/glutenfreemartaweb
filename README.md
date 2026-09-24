@@ -30,11 +30,13 @@ npm test
 `node --test` over the `.ts` files directly — node strips the types, so there is
 no test runner to install and no config to keep in sync.
 
-The suite covers `lib/instagram-api.ts`, which is deliberately free of React and
-Next imports so it can run under plain node. It is the only logic here that can
-fail quietly: picking a reel's thumbnail over its video file, descending into a
-carousel, dropping posts the card cannot render, and returning `null` instead of
-throwing when Meta misbehaves.
+The suite covers `lib/instagram-api.ts` and `lib/amazon-picks.ts`, both
+deliberately free of React and Next imports so they can run under plain node.
+They are the only logic here that can fail quietly: picking a reel's thumbnail
+over its video file, descending into a carousel, dropping posts the card cannot
+render, parsing a CSV cell that contains commas, rejecting a URL that is not
+Amazon's, and returning `null` instead of throwing when Meta or Google
+misbehaves.
 
 Everything else — pages, components, i18n — has no tests. `npm run build` is
 what catches a missing dictionary key.
@@ -50,6 +52,7 @@ app/api/instagram/   image proxy for the feed
 components/          Nav, Footer, LocaleSwitcher, ContactForm, InstagramFeed
 lib/site.ts          links, email, routes
 lib/links.ts         the discount codes and affiliate links behind /links
+lib/amazon.ts        the Amazon recommendations, read from a Google Sheet
 lib/instagram.ts     the live feed
 lib/instagram-stats.ts  the media kit's audience numbers
 lib/i18n/            locale detection, dictionaries (es, en, ca)
@@ -160,6 +163,34 @@ language switcher.
 describes what the GTM container holds today: Google Analytics.** Adding an ads
 tag or a pixel there makes that page wrong, so update it in the same go.
 
+## Affiliate click events
+
+GA4's enhanced measurement only sees clicks on links pointing at another
+http(s) domain, and it can never say *which* link or section one came from.
+These push the missing detail into the dataLayer:
+
+| event | params | where |
+|---|---|---|
+| `affiliate_click` | `network`, `item`, `affiliate` | the shop button on a discount card |
+| `affiliate_click` | `network: "amazon"`, `item` | "See it on Amazon" on a pick |
+| `discount_code_copy` | `network`, `affiliate` | the copy button beside a code |
+
+Copying a code is tracked separately because it is often the *only* thing that
+happens here: the code goes into the shop's own app and nothing downstream ever
+attributes that visit.
+
+`pushToDataLayer` in `lib/gtm.ts` is safe to call without consent — the push
+lands in a plain array and GTM is never loaded, so nothing leaves the browser.
+That also means **these events only reach GA4 for visitors who accepted
+cookies**; the counts are a floor, not a total.
+
+`components/TrackedLink.tsx` exists because most outbound links live in server
+components, which cannot carry an `onClick`.
+
+**The code only fills the dataLayer.** Until the GTM container has a trigger
+and a GA4 tag for each event name, nothing appears in any report. That part is
+configured in GTM, not here.
+
 ## Link in bio
 
 `/links` is where the Instagram profile points. It is deliberately narrow at
@@ -184,3 +215,45 @@ in-app browser that rule exists for.
 The page is linked from the footer only. It is not in the nav: it collects the
 same destinations the nav already offers, and it is meant to be arrived at, not
 navigated to.
+
+## Amazon recommendations
+
+The Amazon block on `/links` is the one part of the site whose content is **not
+in the repo**. It comes from a published Google Sheet, so adding a product is a
+row on a phone rather than a commit, a PR and a deploy.
+
+One tab, headers in row 1, one row per product. Columns are read **by name**, so
+reordering them is harmless:
+
+| column | |
+|---|---|
+| `url` | Required. The SiteStripe link — that is what carries the associate tag. A row whose URL is not Amazon's is dropped, not rendered. |
+| `title` | Required. |
+| `tag` | Optional pill on the card. Empty means no pill. |
+| `description_es` | The card's text. |
+| `description_en` `description_ca` | Optional; blank falls back to the Spanish. |
+| `active` | `FALSE`, `NO` or `0` hides the row without deleting it. Anything else, empty cell included, shows it. |
+
+To publish: *File → Share → Publish to web → that tab → CSV*. The URL it hands
+back goes in `AMAZON_PICKS_SHEET_URL`, in `.env.local` and in Vercel. It is not
+the `/edit` URL from the address bar; that one returns a login page.
+
+**The sheet is the only thing that decides what appears, and failure is silent.**
+A bad publish, a Google outage, a sheet whose columns no longer match, a
+missing `AMAZON_PICKS_SHEET_URL` and an empty sheet all do the same thing: the
+whole section disappears and the rest of `/links` is untouched. There is
+deliberately no fallback list in the repo — a stand-in is indistinguishable
+from a real recommendation, and it would keep showing a product after the sheet
+dropped it, which is the opposite of what the sheet is for.
+
+The cost is that a broken config looks exactly like "no recommendations right
+now". `loadAmazonPicks` logs a `console.warn` naming the status on every
+failure path, so the server logs still tell them apart.
+
+A new row takes up to ten minutes to appear (`AMAZON_PICKS_REVALIDATE_SECONDS`)
+plus whatever Google's own CDN is holding, so call it a quarter of an hour.
+
+The disclosure under the cards is **prescribed by the Amazon Associates
+agreement** and has to stay next to the links — it is not copy to play with.
+The site's own affiliate note at the foot of the page is separate and covers
+the non-Amazon discounts too.

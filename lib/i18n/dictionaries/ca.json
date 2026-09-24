@@ -328,6 +328,13 @@
         }
       }
     },
+    "amazon": {
+      "eyebrow": "Amazon (afiliat)",
+      "title": "El que tinc a casa",
+      "body": "Coses que compro de veritat i repeteixo. Quan alguna cosa deixa de convèncer-me, la trec d'aquí.",
+      "cta": "Veure-ho a Amazon",
+      "disclosure": "En qualitat d'Afiliat d'Amazon, obtinc ingressos per les compres adscrites que compleixen els requisits aplicables."
+    },
     "more": {
       "title": "Més coses",
       "items": {

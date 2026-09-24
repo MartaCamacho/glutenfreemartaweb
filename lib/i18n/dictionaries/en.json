@@ -328,6 +328,13 @@
         }
       }
     },
+    "amazon": {
+      "eyebrow": "Amazon (affiliate)",
+      "title": "What I actually keep at home",
+      "body": "Things I really buy and buy again. When something stops convincing me, it comes off this list.",
+      "cta": "See it on Amazon",
+      "disclosure": "As an Amazon Associate I earn from qualifying purchases."
+    },
     "more": {
       "title": "More things",
       "items": {

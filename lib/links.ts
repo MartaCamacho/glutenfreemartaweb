@@ -40,9 +40,13 @@ export const EXTRA_LINKS: ExtraLink[] = [
   { id: "contact", href: ROUTES.contact, affiliate: false },
 ];
 
-/** The note is a claim about money, so only make it when one is true. */
-export function hasAffiliateLinks() {
+/**
+ * The note is a claim about money, so only make it when one is true. Amazon
+ * picks always pay a commission, so their count is enough on its own.
+ */
+export function hasAffiliateLinks(amazonPicks = 0) {
   return (
+    amazonPicks > 0 ||
     DISCOUNTS.some((item) => item.affiliate) ||
     EXTRA_LINKS.some((item) => item.affiliate)
   );
