@@ -328,6 +328,13 @@
         }
       }
     },
+    "amazon": {
+      "eyebrow": "Amazon (afiliado)",
+      "title": "Lo que tengo en casa",
+      "body": "Cosas que compro de verdad y repito. Cuando algo deja de convencerme, lo quito de aquí.",
+      "cta": "Ver en Amazon",
+      "disclosure": "En calidad de Afiliado de Amazon, obtengo ingresos por las compras adscritas que cumplen los requisitos aplicables."
+    },
     "more": {
       "title": "Más cosas",
       "items": {

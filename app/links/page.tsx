@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import AmazonPicks from "@/components/AmazonPicks";
 import DiscountCard from "@/components/DiscountCard";
-import { getDictionary } from "@/lib/i18n/server";
+import { getAmazonPicks } from "@/lib/amazon";
+import { getDictionary, getLocale } from "@/lib/i18n/server";
 import { DISCOUNTS, EXTRA_LINKS, hasAffiliateLinks } from "@/lib/links";
 import { APP_STORE_URL, GOOGLE_PLAY_URL } from "@/lib/site";
 
@@ -15,7 +17,8 @@ const ROW_CLASS =
   "block rounded-card bg-white p-6 shadow-card transition-transform hover:-translate-y-1";
 
 export default async function LinksPage() {
-  const { links } = await getDictionary();
+  const [{ links }, locale] = await Promise.all([getDictionary(), getLocale()]);
+  const picks = await getAmazonPicks(locale);
 
   return (
     // Narrow at every width: nearly every visit is a thumb tap arriving from
@@ -90,6 +93,10 @@ export default async function LinksPage() {
         </section>
       ) : null}
 
+      {picks.length > 0 ? (
+        <AmazonPicks picks={picks} dict={links.amazon} />
+      ) : null}
+
       {EXTRA_LINKS.length > 0 ? (
         <section className="mb-12">
           <h2 className="mb-6 font-display text-[26px] font-extrabold leading-[1.15]">
@@ -130,7 +137,7 @@ export default async function LinksPage() {
       ) : null}
 
       {/* A claim about money, so only made when one of the links earns it. */}
-      {hasAffiliateLinks() ? (
+      {hasAffiliateLinks(picks.length) ? (
         <p className="text-center text-sm leading-[1.6] text-ink-muted">
           {links.disclosure}
         </p>

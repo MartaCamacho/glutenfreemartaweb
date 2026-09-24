@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl -s -o bricolage-700.ttf \"https://fonts.gstatic.com/s/bricolagegrotesque/v9/3y9U6as8bTXq_nANBjzKo3IeZx8z6up5BeSl5jBNz_19PpbJMXuECpwUxJBOm_OJWiaaD30YfKfjZZoLvfzlyM0.ttf\")",
+      "Bash(npm test *)",
+      "Bash(gh pr *)",
+      "Bash(git check-ignore *)",
+      "Bash(git switch *)"
+    ]
+  }
+}

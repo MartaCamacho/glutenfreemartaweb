@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { pushToDataLayer } from "@/lib/gtm";
 import type { Dictionary } from "@/lib/i18n/server";
 import type { Discount } from "@/lib/links";
 
@@ -14,6 +15,15 @@ export default function DiscountCard({
   const [copied, setCopied] = useState(false);
 
   async function handleCopy() {
+    // Copying the code is the step before leaving, and often the only one that
+    // happens on this page — someone can paste it into the shop's app instead
+    // of following the link, where nothing downstream would ever see them.
+    pushToDataLayer({
+      event: "discount_code_copy",
+      network: discount.brand,
+      affiliate: String(discount.affiliate),
+    });
+
     try {
       await navigator.clipboard.writeText(discount.code);
       setCopied(true);
@@ -58,6 +68,14 @@ export default function DiscountCard({
         href={discount.url}
         target="_blank"
         rel="noopener noreferrer"
+        onClick={() =>
+          pushToDataLayer({
+            event: "affiliate_click",
+            network: discount.brand,
+            item: discount.code,
+            affiliate: String(discount.affiliate),
+          })
+        }
         className="block rounded-full bg-pink px-7 py-3.5 text-center font-bold text-white transition-opacity hover:opacity-90"
       >
         {dict.cta.replace("{brand}", discount.brand)}
