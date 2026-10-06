@@ -141,8 +141,17 @@ async function rotate() {
     );
   } catch (error) {
     const target = variable.target?.join(", ") ?? "unknown target";
+    // Shape, never the value: enough to tell a truncated or mangled paste from
+    // a genuinely dead token, without putting a credential in a public log.
+    const shape = [
+      `${stored.length} chars`,
+      /\s/.test(stored) ? "contains whitespace" : null,
+      /^["']|["']$/.test(stored) ? "wrapped in quotes" : null,
+    ]
+      .filter(Boolean)
+      .join("; ");
     throw new Error(
-      `Instagram rejected the token stored on Vercel (${target}): ${error.message}`,
+      `Instagram rejected the token stored on Vercel (${target}; ${shape}): ${error.message}`,
     );
   }
 
