@@ -67,15 +67,17 @@ read from the Instagram API and cached for an hour.
 
 It needs `INSTAGRAM_ACCESS_TOKEN` in `.env.local` and in Vercel — see
 `.env.example`. **Without it nothing breaks**: the section falls back to the
-sample posts in the dictionaries, which is also what happens if Meta errors or
-the token expires. Watch for that, because the failure is silent by design.
+posts frozen in `lib/instagram-fallback.ts`, which is also what happens if Meta
+errors or the token expires. Watch for that, because the failure is silent by
+design.
 
 ```bash
 npm run instagram:check     # verify the token, print the posts the site would render
 npm run instagram:refresh   # extend the token, then paste it into .env.local and Vercel
+npm run instagram:fallback  # re-freeze the fallback from the current top posts
 ```
 
-Two things about this API worth knowing before touching it:
+Three things about this API worth knowing before touching it:
 
 - Tokens **expire 60 days** after being issued or refreshed. A monthly GitHub
   Action (`.github/workflows/instagram-token.yml`) rotates the one on Vercel so
@@ -85,6 +87,12 @@ Two things about this API worth knowing before touching it:
   browser. `app/api/instagram/[id]/route.ts` proxies images by media id, which
   is stable and cacheable. That is why there is no `images.remotePatterns`
   entry.
+- The fallback is a **snapshot, not a live read**. `npm run instagram:fallback`
+  ranks the recent window by views and freezes the best three into
+  `lib/instagram-fallback.ts`. Insights reach back only **90 days**, so it ranks
+  recent posts rather than the account's history. Those cards carry no image —
+  the proxy needs the very token that is missing — but they do link to the real
+  posts, so a deleted post leaves a dead link. Re-run it after a rotation.
 
 Captions are shown in Spanish in all three languages — the posts themselves are
 Spanish. Only the chrome and the media-type labels are translated.

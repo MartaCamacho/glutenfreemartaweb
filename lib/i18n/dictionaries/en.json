@@ -41,29 +41,6 @@
       "eyebrow": "From the feed",
       "title": "What's cooking on @glutenfreemarta",
       "link": "See full profile →",
-      "posts": [
-        {
-          "tag": "Reel",
-          "title": "\"So bloody done with gluten-free but may contain traces\"",
-          "note": "A classic of labels that tell you nothing."
-        },
-        {
-          "tag": "Guide",
-          "title": "5 things I pack to cook gluten-free in an Airbnb",
-          "note": "Spoiler: the non-stick pan is non-negotiable."
-        },
-        {
-          "tag": "Reel",
-          "title": "Mercadona's gluten-free breads, tried and judged",
-          "note": "From \"this tastes like cardboard\" to \"I'm taking it home\"."
-        },
-        {
-          "tag": "Rant",
-          "title": "Barbecue day, with my own lunchbox",
-          "note": "Yes, I was \"the odd one\" with the lunchbox again."
-        }
-      ],
-      "disclaimer": "Sample posts — connect your real Instagram feed to show them live.",
       "types": {
         "image": "Photo",
         "video": "Reel",

@@ -37,6 +37,7 @@ export type MediaKitStats = {
 
 export type PostMetrics = {
   reach: number;
+  views: number;
   likes: number;
   comments: number;
   shares: number;
@@ -52,7 +53,9 @@ const ACCOUNT_METRICS = [
   "profile_views",
 ].join(",");
 
-const POST_METRICS = ["reach", "likes", "comments", "shares", "saved"].join(",");
+const POST_METRICS = ["reach", "views", "likes", "comments", "shares", "saved"].join(
+  ",",
+);
 
 const PROFILE_FIELDS = ["followers_count", "media_count"].join(",");
 
@@ -220,6 +223,7 @@ export function readPostMetrics(
 
     metrics.set(media.id, {
       reach: values.get("reach") ?? 0,
+      views: values.get("views") ?? 0,
       likes: values.get("likes") ?? 0,
       comments: values.get("comments") ?? 0,
       shares: values.get("shares") ?? 0,
@@ -233,21 +237,24 @@ export function readPostMetrics(
 export type RankedPost<T> = { post: T; metrics: PostMetrics };
 
 /**
- * Best by reach, not most recent: a media kit is an argument, and the argument
- * is what the account can do on a good day. Posts Insights knows nothing about
- * are left out rather than ranked as zeroes.
+ * Best by a metric, not most recent: a media kit is an argument, and the
+ * argument is what the account can do on a good day. Reach is the default
+ * because that is the claim the media kit makes; the home page's fallback
+ * ranks the same pool by views. Posts Insights knows nothing about are left
+ * out rather than ranked as zeroes.
  */
 export function selectTopPosts<T extends { id: string }>(
   posts: T[],
   metrics: Map<string, PostMetrics>,
   count: number,
+  by: keyof PostMetrics = "reach",
 ): RankedPost<T>[] {
   return posts
     .flatMap((post) => {
       const found = metrics.get(post.id);
       return found ? [{ post, metrics: found }] : [];
     })
-    .sort((a, b) => b.metrics.reach - a.metrics.reach)
+    .sort((a, b) => b.metrics[by] - a.metrics[by])
     .slice(0, count);
 }
 

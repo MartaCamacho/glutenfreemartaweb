@@ -41,29 +41,6 @@
       "eyebrow": "Del feed",
       "title": "Lo que se cuece en @glutenfreemarta",
       "link": "Ver perfil completo →",
-      "posts": [
-        {
-          "tag": "Reel",
-          "title": "\"Hasta el c*ño del sin gluten pero puede contener trazas\"",
-          "note": "Un clásico de las etiquetas que no dicen nada."
-        },
-        {
-          "tag": "Guía",
-          "title": "5 cosas que llevo para cocinar sin gluten en un Airbnb",
-          "note": "Spoiler: la sartén de teflón va sí o sí."
-        },
-        {
-          "tag": "Reel",
-          "title": "Los panes sin gluten de Mercadona, probados y juzgados",
-          "note": "Del \"esto sabe a cartón\" al \"me lo llevo a casa\"."
-        },
-        {
-          "tag": "Desahogo",
-          "title": "El día de la barbacoa con tupper propio",
-          "note": "Sí, otra vez fui \"la rara\" del tupper."
-        }
-      ],
-      "disclaimer": "Publicaciones de ejemplo — conecta tu feed de Instagram real para mostrarlas en vivo.",
       "types": {
         "image": "Foto",
         "video": "Reel",

@@ -2,7 +2,8 @@ import Image from "next/image";
 import type { Locale } from "@/lib/i18n/config";
 import type { Dictionary } from "@/lib/i18n/server";
 import { captionHeadline } from "@/lib/instagram-api";
-import { getInstagramPosts, type InstagramPost } from "@/lib/instagram";
+import { getInstagramPosts, type InstagramMediaType } from "@/lib/instagram";
+import { FALLBACK_POSTS } from "@/lib/instagram-fallback";
 import { INSTAGRAM_URL } from "@/lib/site";
 
 const POST_ACCENTS = [
@@ -25,63 +26,64 @@ function accent(index: number) {
   return POST_ACCENTS[index % POST_ACCENTS.length];
 }
 
-function LivePost({
-  post,
+/**
+ * One card for both states. The frozen fallback posts are real, so they link
+ * out like the live ones; the only thing they lack is an image, because the
+ * proxy that serves those needs the token that is missing in the first place.
+ */
+function PostCard({
+  permalink,
+  caption,
+  mediaType,
+  timestamp,
+  imageId,
   index,
   dict,
   locale,
 }: {
-  post: InstagramPost;
+  permalink: string;
+  caption: string | null;
+  mediaType: InstagramMediaType;
+  timestamp: string;
+  imageId?: string;
   index: number;
   dict: FeedDict;
   locale: Locale;
 }) {
-  const title = captionHeadline(post.caption, dict.imageAlt);
+  const title = captionHeadline(caption, dict.imageAlt);
   const date = new Intl.DateTimeFormat(locale, {
     day: "numeric",
     month: "long",
-  }).format(new Date(post.timestamp));
+  }).format(new Date(timestamp));
 
   return (
     <a
-      href={post.permalink}
+      href={permalink}
       target="_blank"
       rel="noopener noreferrer"
       className={`${CARD_CLASS} overflow-hidden transition-transform hover:-translate-y-1`}
     >
-      <div className="relative aspect-[4/5] w-full">
-        <Image
-          src={`/api/instagram/${post.id}`}
-          alt={title}
-          fill
-          sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
-          className="object-cover"
-        />
-      </div>
-      <div className="flex flex-1 flex-col justify-between gap-3 p-7 pt-5">
+      {imageId ? (
+        <div className="relative aspect-[4/5] w-full">
+          <Image
+            src={`/api/instagram/${imageId}`}
+            alt={title}
+            fill
+            sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
+            className="object-cover"
+          />
+        </div>
+      ) : null}
+      <div
+        className={`flex flex-1 flex-col justify-between gap-3 p-7 ${imageId ? "pt-5" : ""}`}
+      >
         <span className={`${TAG_CLASS} ${accent(index)}`}>
-          {dict.types[post.mediaType]}
+          {dict.types[mediaType]}
         </span>
         <p className={`${TITLE_CLASS} line-clamp-2`}>{title}</p>
         <span className="text-sm text-ink-muted">{date}</span>
       </div>
     </a>
-  );
-}
-
-function SamplePost({
-  post,
-  index,
-}: {
-  post: FeedDict["posts"][number];
-  index: number;
-}) {
-  return (
-    <article className={`${CARD_CLASS} gap-4 p-7`}>
-      <span className={`${TAG_CLASS} ${accent(index)}`}>{post.tag}</span>
-      <p className={TITLE_CLASS}>{post.title}</p>
-      <span className="text-sm text-ink-muted">{post.note}</span>
-    </article>
   );
 }
 
@@ -93,6 +95,13 @@ export default async function InstagramFeed({
   locale: Locale;
 }) {
   const posts = await getInstagramPosts();
+  const cards = posts
+    ? posts.map((post) => ({ ...post, imageId: post.id, key: post.id }))
+    : FALLBACK_POSTS.map((post) => ({
+        ...post,
+        imageId: undefined,
+        key: post.permalink,
+      }));
 
   return (
     <section className="bg-pink-soft px-[6%] py-[90px]">
@@ -115,26 +124,20 @@ export default async function InstagramFeed({
         </div>
 
         <div className="grid gap-6 [grid-template-columns:repeat(auto-fit,minmax(260px,1fr))]">
-          {posts
-            ? posts.map((post, i) => (
-                <LivePost
-                  key={post.id}
-                  post={post}
-                  index={i}
-                  dict={dict}
-                  locale={locale}
-                />
-              ))
-            : dict.posts.map((post, i) => (
-                <SamplePost key={post.title} post={post} index={i} />
-              ))}
+          {cards.map((card, i) => (
+            <PostCard
+              key={card.key}
+              permalink={card.permalink}
+              caption={card.caption}
+              mediaType={card.mediaType}
+              timestamp={card.timestamp}
+              imageId={card.imageId}
+              index={i}
+              dict={dict}
+              locale={locale}
+            />
+          ))}
         </div>
-
-        {posts ? null : (
-          <p className="mt-9 text-center text-sm text-ink-muted">
-            {dict.disclaimer}
-          </p>
-        )}
       </div>
     </section>
   );

@@ -200,6 +200,7 @@ describe("readPostMetrics", () => {
           insights: {
             data: [
               { name: "reach", values: [{ value: 3625 }] },
+              { name: "views", values: [{ value: 14452 }] },
               { name: "likes", values: [{ value: 64 }] },
               { name: "comments", values: [{ value: 19 }] },
               { name: "shares", values: [{ value: 38 }] },
@@ -212,6 +213,7 @@ describe("readPostMetrics", () => {
 
     assert.deepEqual(metrics.get("1"), {
       reach: 3625,
+      views: 14452,
       likes: 64,
       comments: 19,
       shares: 38,
@@ -229,14 +231,37 @@ describe("readPostMetrics", () => {
 });
 
 describe("selectTopPosts", () => {
+  const metric = (reach: number, views: number) => ({
+    reach,
+    views,
+    likes: 0,
+    comments: 0,
+    shares: 0,
+    saves: 0,
+  });
+
   const posts = [{ id: "a" }, { id: "b" }, { id: "c" }];
+  /** Deliberately disagree, so a test that passes either way cannot exist. */
   const metrics = new Map([
-    ["a", { reach: 400, likes: 0, comments: 0, shares: 0, saves: 0 }],
-    ["b", { reach: 7593, likes: 0, comments: 0, shares: 0, saves: 0 }],
-    ["c", { reach: 3625, likes: 0, comments: 0, shares: 0, saves: 0 }],
+    ["a", metric(400, 9000)],
+    ["b", metric(7593, 100)],
+    ["c", metric(3625, 5000)],
   ]);
 
   it("ranks by reach rather than keeping Instagram's order", () => {
+    assert.deepEqual(
+      selectTopPosts(posts, metrics, 3).map((ranked) => ranked.post.id),
+      ["b", "c", "a"],
+    );
+  });
+
+  it("ranks by the metric asked for, without disturbing the default", () => {
+    assert.deepEqual(
+      selectTopPosts(posts, metrics, 3, "views").map(
+        (ranked) => ranked.post.id,
+      ),
+      ["a", "c", "b"],
+    );
     assert.deepEqual(
       selectTopPosts(posts, metrics, 3).map((ranked) => ranked.post.id),
       ["b", "c", "a"],
@@ -420,7 +445,10 @@ describe("loadPostMetrics", () => {
     // Separate from the feed loader on purpose: a nested insights error fails
     // the whole media call, and the home page must not go down with it.
     assert.equal(calls.length, 1);
-    assert.match(calls[0], /insights\.metric\(reach,likes,comments,shares,saved\)/);
+    assert.match(
+      calls[0],
+      /insights\.metric\(reach,views,likes,comments,shares,saved\)/,
+    );
     assert.match(calls[0], /limit=12/);
   });
 

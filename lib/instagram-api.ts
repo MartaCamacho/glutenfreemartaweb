@@ -98,6 +98,8 @@ export type LoadOptions = {
   token: string | undefined;
   apiBase: string;
   revalidateSeconds: number;
+  /** The feed wants its usual window; ranking scripts ask for a wider one. */
+  limit?: number;
   fetchImpl?: typeof fetch;
 };
 
@@ -114,11 +116,12 @@ export async function loadInstagramPosts({
   token,
   apiBase,
   revalidateSeconds,
+  limit = FETCH_LIMIT,
   fetchImpl = fetch,
 }: LoadOptions): Promise<ResolvedPost[] | null> {
   if (!token) return null;
 
-  const url = `${apiBase}/me/media?fields=${MEDIA_FIELDS}&limit=${FETCH_LIMIT}&access_token=${token}`;
+  const url = `${apiBase}/me/media?fields=${MEDIA_FIELDS}&limit=${limit}&access_token=${token}`;
 
   try {
     const response = await fetchImpl(url, {
@@ -133,7 +136,7 @@ export async function loadInstagramPosts({
     }
 
     const body: { data?: ApiMedia[] } = await response.json();
-    const posts = selectPosts(body.data ?? [], FETCH_LIMIT);
+    const posts = selectPosts(body.data ?? [], limit);
 
     return posts.length > 0 ? posts : null;
   } catch (error) {
