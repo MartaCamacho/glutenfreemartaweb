@@ -125,7 +125,13 @@ async function rotate() {
     throw new Error("INSTAGRAM_ACCESS_TOKEN is not set on the Vercel project");
   }
 
-  const stored = variable.value?.trim();
+  // The list endpoint hands back the ciphertext whatever `decrypt` says. Only
+  // asking for the one variable returns the plaintext Instagram will accept.
+  const single = await vercelFetch(
+    vercelUrl(`/v1/projects/${projectId}/env/${variable.id}`),
+  );
+  const stored = single.value?.trim();
+
   if (!stored) {
     // Vercel refuses to read back a "sensitive" variable, decrypt=true or not.
     throw new Error(
