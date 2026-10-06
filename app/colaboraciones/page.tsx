@@ -62,12 +62,12 @@ export default async function MediaKitPage() {
 
           <div className="flex justify-center">
             <Image
-              src="/images/ilustracion-corazon.png"
+              src="/images/foto-marta.jpeg"
               alt={mediaKit.hero.imageAlt}
-              width={340}
-              height={340}
+              width={1086}
+              height={1448}
               priority
-              className="w-[260px] drop-shadow-illu md:w-[340px]"
+              className="aspect-square w-[260px] rounded-block object-cover shadow-card md:w-[340px]"
             />
           </div>
         </div>

@@ -26,12 +26,12 @@ export default async function AboutPage() {
         </div>
         <div className="flex justify-center">
           <Image
-            src="/images/ilustracion-peineta.png"
+            src="/images/foto-marta.jpeg"
             alt={about.hero.imageAlt}
-            width={1023}
-            height={1537}
+            width={1086}
+            height={1448}
             priority
-            className="w-[320px] max-w-full rounded-block drop-shadow-illu"
+            className="w-[320px] max-w-full rounded-block shadow-card"
           />
         </div>
       </section>
