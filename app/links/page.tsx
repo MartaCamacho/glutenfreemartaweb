@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import AmazonPicks from "@/components/AmazonPicks";
 import DiscountCard from "@/components/DiscountCard";
@@ -25,14 +24,6 @@ export default async function LinksPage() {
     // the Instagram bio, so this never becomes a two-column layout.
     <div className="mx-auto max-w-[640px] px-[6%] pb-25 pt-15">
       <header className="mb-12 text-center">
-        <Image
-          src="/images/ilustracion-corazon.png"
-          alt={links.hero.imageAlt}
-          width={1023}
-          height={1537}
-          priority
-          className="mx-auto mb-5 w-[130px] drop-shadow-illu"
-        />
         <p className="mb-4 text-sm font-bold uppercase tracking-[0.08em] text-pink">
           {links.hero.eyebrow}
         </p>
