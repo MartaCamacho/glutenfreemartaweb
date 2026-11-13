@@ -299,7 +299,12 @@
       "copy": "Copiar",
       "copied": "Copiado",
       "cta": "Ir a {brand}",
+      "featured": "Destacado",
+      "validUntil": "Válido hasta el {date}",
       "items": {
+        "glutfree": {
+          "description": "Caja mensual de pan y dulces artesanos sin gluten: sin trazas, sin pan de cartón y sin recorrerte media ciudad buscando un obrador."
+        },
         "natulim": {
           "description": "Detergente en láminas: sin plástico, sin garrafas de cinco kilos y sin dejarte la espalda en el súper."
         }

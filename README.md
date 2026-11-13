@@ -216,6 +216,12 @@ three dictionaries. Set `affiliate: true` when the link pays a commission: the
 disclosure note at the foot of the page renders only when at least one of them
 does, so it never claims a commission that is not earned.
 
+Cards show in array order. `featured: true` rings a card in pink and labels it.
+`validUntil` (an ISO timestamp with Madrid's offset) prints "valid until" on the
+card and takes it off the page once that moment passes, with no deploy, since
+the page renders per request. The expired entry stays in `DISCOUNTS` until
+someone deletes it.
+
 The store buttons repeat the no-`target="_blank"` rule from the Lab page, and
 for the same reason — this page is the one that actually lives inside the
 in-app browser that rule exists for.

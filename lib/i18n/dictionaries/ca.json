@@ -299,7 +299,12 @@
       "copy": "Copiar",
       "copied": "Copiat",
       "cta": "Anar a {brand}",
+      "featured": "Destacat",
+      "validUntil": "Vàlid fins al {date}",
       "items": {
+        "glutfree": {
+          "description": "Caixa mensual de pa i dolços artesans sense gluten: sense traces, sense pa de cartró i sense recórrer mitja ciutat buscant un obrador."
+        },
         "natulim": {
           "description": "Detergent en làmines: sense plàstic, sense garrafes de cinc quilos i sense destrossar-te l'esquena al súper."
         }

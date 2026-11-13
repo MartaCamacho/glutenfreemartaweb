@@ -299,7 +299,12 @@
       "copy": "Copy",
       "copied": "Copied",
       "cta": "Go to {brand}",
+      "featured": "Featured",
+      "validUntil": "Valid until {date}",
       "items": {
+        "glutfree": {
+          "description": "A monthly box of artisan gluten-free bread and sweets: no traces, no cardboard bread and no crossing half the city looking for a bakery."
+        },
         "natulim": {
           "description": "Laundry detergent sheets: no plastic, no five-kilo bottles and no wrecking your back on the way home."
         }

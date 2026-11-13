@@ -4,7 +4,7 @@ import AmazonPicks from "@/components/AmazonPicks";
 import DiscountCard from "@/components/DiscountCard";
 import { getAmazonPicks } from "@/lib/amazon";
 import { getDictionary, getLocale } from "@/lib/i18n/server";
-import { DISCOUNTS, EXTRA_LINKS, hasAffiliateLinks } from "@/lib/links";
+import { EXTRA_LINKS, hasAffiliateLinks, liveDiscounts } from "@/lib/links";
 import { APP_STORE_URL, GOOGLE_PLAY_URL } from "@/lib/site";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -18,6 +18,14 @@ const ROW_CLASS =
 export default async function LinksPage() {
   const [{ links }, locale] = await Promise.all([getDictionary(), getLocale()]);
   const picks = await getAmazonPicks(locale);
+  const discounts = liveDiscounts();
+  // Formatted here, not in the client card: Node and the browser can disagree
+  // on a month name, and that disagreement is a hydration error.
+  const expiryDate = new Intl.DateTimeFormat(locale, {
+    day: "numeric",
+    month: "long",
+    timeZone: "Europe/Madrid",
+  });
 
   return (
     // Narrow at every width: nearly every visit is a thumb tap arriving from
@@ -64,7 +72,7 @@ export default async function LinksPage() {
         </div>
       </section>
 
-      {DISCOUNTS.length > 0 ? (
+      {discounts.length > 0 ? (
         <section className="mb-12">
           <p className="mb-2 text-sm font-bold uppercase tracking-[0.08em] text-pink">
             {links.discounts.eyebrow}
@@ -73,11 +81,16 @@ export default async function LinksPage() {
             {links.discounts.title}
           </h2>
           <div className="flex flex-col gap-5">
-            {DISCOUNTS.map((discount) => (
+            {discounts.map((discount) => (
               <DiscountCard
                 key={discount.id}
                 discount={discount}
                 dict={links.discounts}
+                expiry={
+                  discount.validUntil
+                    ? expiryDate.format(new Date(discount.validUntil))
+                    : undefined
+                }
               />
             ))}
           </div>

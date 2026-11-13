@@ -8,9 +8,12 @@ import type { Discount } from "@/lib/links";
 export default function DiscountCard({
   discount,
   dict,
+  expiry,
 }: {
   discount: Discount;
   dict: Dictionary["links"]["discounts"];
+  /** The last valid day, already formatted for the locale. */
+  expiry?: string;
 }) {
   const [copied, setCopied] = useState(false);
 
@@ -34,7 +37,15 @@ export default function DiscountCard({
   }
 
   return (
-    <article className="rounded-card bg-white p-6 shadow-card">
+    <article
+      className={`rounded-card bg-white p-6 shadow-card ${discount.featured ? "ring-2 ring-pink" : ""}`}
+    >
+      {discount.featured ? (
+        <p className="mb-2 text-sm font-bold uppercase tracking-[0.08em] text-pink">
+          {dict.featured}
+        </p>
+      ) : null}
+
       <div className="mb-2 flex flex-wrap items-center gap-3">
         <h3 className="font-display text-[19px] font-bold leading-[1.15]">
           {discount.brand}
@@ -80,6 +91,12 @@ export default function DiscountCard({
       >
         {dict.cta.replace("{brand}", discount.brand)}
       </a>
+
+      {expiry ? (
+        <p className="mt-3 text-center text-sm text-ink-muted">
+          {dict.validUntil.replace("{date}", expiry)}
+        </p>
+      ) : null}
     </article>
   );
 }
