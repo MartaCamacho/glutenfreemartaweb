@@ -18,6 +18,9 @@ export type InstagramPost = {
 /** Same shape plus the CDN URL, which never reaches a component. */
 export type ResolvedPost = InstagramPost & { imageUrl: string };
 
+/** Null when Meta withholds the file, which it does for reels with licensed music. */
+export type ResolvedVideo = ResolvedPost & { videoUrl: string | null };
+
 export type ApiMedia = {
   id?: string;
   caption?: string;
@@ -42,6 +45,12 @@ export const MEDIA_FIELDS = [
 
 /** Over-fetch so posts without a usable image don't shrink the grid. */
 export const FETCH_LIMIT = 12;
+
+/**
+ * How far back the image proxy will look. A page rendered from a stale cache
+ * can ask for a post that has since dropped out of the newest twelve.
+ */
+export const PROXY_FETCH_LIMIT = 50;
 
 const MEDIA_TYPES: Record<string, InstagramMediaType> = {
   IMAGE: "image",
@@ -143,4 +152,57 @@ export async function loadInstagramPosts({
     console.warn("Instagram feed unavailable:", error);
     return null;
   }
+}
+
+export type MediaOptions = Omit<LoadOptions, "limit"> & {
+  ids: readonly string[];
+};
+
+async function loadOneMedia(
+  id: string,
+  { token, apiBase, revalidateSeconds, fetchImpl = fetch }: MediaOptions,
+): Promise<ResolvedVideo | null> {
+  const url = `${apiBase}/${id}?fields=${MEDIA_FIELDS}&access_token=${token}`;
+
+  try {
+    const response = await fetchImpl(url, {
+      next: { revalidate: revalidateSeconds },
+    } as RequestInit);
+
+    if (!response.ok) {
+      console.warn(
+        `Instagram media ${id} unavailable: ${response.status} ${response.statusText}`,
+      );
+      return null;
+    }
+
+    const media: ApiMedia = await response.json();
+    const post = normalisePost(media);
+    if (!post) return null;
+
+    return {
+      ...post,
+      videoUrl: media.media_type === "VIDEO" ? media.media_url ?? null : null,
+    };
+  } catch (error) {
+    console.warn(`Instagram media ${id} unavailable:`, error);
+    return null;
+  }
+}
+
+/**
+ * Specific posts by id, however far down the account they are, in the order
+ * asked. Never throws: one missing post drops out, and none at all is null.
+ */
+export async function loadInstagramMedia(
+  options: MediaOptions,
+): Promise<ResolvedVideo[] | null> {
+  if (!options.token) return null;
+
+  const media = await Promise.all(
+    options.ids.map((id) => loadOneMedia(id, options)),
+  );
+  const found = media.filter((post): post is ResolvedVideo => post !== null);
+
+  return found.length > 0 ? found : null;
 }

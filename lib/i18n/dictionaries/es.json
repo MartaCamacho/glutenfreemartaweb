@@ -254,8 +254,19 @@
         {
           "title": "Presencia en CeroGluten Lab",
           "body": "Mi app sobre celiaquía tiene su propia comunidad, así que también podemos plantear algo ahí y no solo en el feed."
+        },
+        {
+          "title": "Vídeo UGC",
+          "body": "Grabo y edito un vídeo con tu producto y te lo entrego listo para tus redes o tu web. Mi forma de contarlo, en tus canales."
         }
       ]
+    },
+    "ugc": {
+      "eyebrow": "Contenido UGC",
+      "title": "Vídeos que he hecho para marcas",
+      "body": "Idea, guion, grabación y edición: todo mío. Así queda un producto cuando lo cuento yo.",
+      "videoLabel": "Vídeo para {brand}",
+      "link": "Ver en Instagram →"
     },
     "brands": {
       "title": "Marcas con las que he trabajado",
@@ -263,7 +274,11 @@
       "items": [
         {
           "name": "Natulim",
-          "what": "Código de descuento para mi comunidad."
+          "what": "Código de descuento para mi comunidad y vídeo UGC."
+        },
+        {
+          "name": "Glutfree",
+          "what": "Vídeo UGC y código de descuento para mi comunidad."
         }
       ]
     },

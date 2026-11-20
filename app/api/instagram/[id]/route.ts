@@ -1,4 +1,7 @@
-import { getInstagramImageUrl } from "@/lib/instagram";
+import {
+  getFreshInstagramImageUrl,
+  getInstagramImageUrl,
+} from "@/lib/instagram";
 
 /**
  * Instagram's CDN URLs are signed and expire, so they can't go into cached HTML.
@@ -16,7 +19,13 @@ export async function GET(
     return new Response("Not found", { status: 404 });
   }
 
-  const upstream = await fetch(imageUrl);
+  let upstream = await fetch(imageUrl);
+
+  // A stale cache entry can outlive its signature; ask Meta for a new one once.
+  if (!upstream.ok) {
+    const freshUrl = await getFreshInstagramImageUrl(id);
+    if (freshUrl) upstream = await fetch(freshUrl);
+  }
 
   if (!upstream.ok || !upstream.body) {
     return new Response("Upstream image unavailable", { status: 502 });

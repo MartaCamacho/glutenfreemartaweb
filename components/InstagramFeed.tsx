@@ -1,4 +1,4 @@
-import Image from "next/image";
+import InstagramImage from "@/components/InstagramImage";
 import type { Locale } from "@/lib/i18n/config";
 import type { Dictionary } from "@/lib/i18n/server";
 import { captionHeadline } from "@/lib/instagram-api";
@@ -64,15 +64,12 @@ function PostCard({
       className={`${CARD_CLASS} overflow-hidden transition-transform hover:-translate-y-1`}
     >
       {imageId ? (
-        <div className="relative aspect-[4/5] w-full">
-          <Image
-            src={`/api/instagram/${imageId}`}
-            alt={title}
-            fill
-            sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
-            className="object-cover"
-          />
-        </div>
+        <InstagramImage
+          id={imageId}
+          title={title}
+          sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
+          className="aspect-[4/5]"
+        />
       ) : null}
       <div
         className={`flex flex-1 flex-col justify-between gap-3 p-7 ${imageId ? "pt-5" : ""}`}

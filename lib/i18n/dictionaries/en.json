@@ -254,8 +254,19 @@
         {
           "title": "A spot in CeroGluten Lab",
           "body": "My coeliac app has a community of its own, so we can plan something there too, not only in the feed."
+        },
+        {
+          "title": "UGC video",
+          "body": "I film and edit a video with your product and hand it over ready for your social media or your website. My way of telling it, on your channels."
         }
       ]
+    },
+    "ugc": {
+      "eyebrow": "UGC content",
+      "title": "Videos I have made for brands",
+      "body": "Idea, script, filming and editing: all mine. This is what a product looks like when I am the one telling it.",
+      "videoLabel": "Video for {brand}",
+      "link": "View on Instagram →"
     },
     "brands": {
       "title": "Brands I have worked with",
@@ -263,7 +274,11 @@
       "items": [
         {
           "name": "Natulim",
-          "what": "Discount code for my community."
+          "what": "Discount code for my community and a UGC video."
+        },
+        {
+          "name": "Glutfree",
+          "what": "A UGC video and a discount code for my community."
         }
       ]
     },

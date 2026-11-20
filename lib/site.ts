@@ -10,6 +10,11 @@ export const INSTAGRAM_STATS_WINDOW_DAYS = 90;
 export const INSTAGRAM_STATS_REVALIDATE_SECONDS = 21600;
 export const MEDIA_KIT_POST_COUNT = 3;
 export const MEDIA_KIT_COUNTRY_COUNT = 4;
+/** Graph media ids, not the shortcode in the post URL: /me/media lists both. */
+export const MEDIA_KIT_UGC = [
+  { id: "18167242996493522", brand: "Glutfree" },
+  { id: "18022054556933311", brand: "Natulim" },
+] as const;
 /** How long a new row in the picks sheet takes to show up, plus Google's own cache. */
 export const AMAZON_PICKS_REVALIDATE_SECONDS = 600;
 

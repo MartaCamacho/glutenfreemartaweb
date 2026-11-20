@@ -1,13 +1,15 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import InstagramImage from "@/components/InstagramImage";
 import {
   MediaKitAudience,
   MediaKitNumbers,
 } from "@/components/MediaKitFigures";
+import MediaKitUgc from "@/components/MediaKitUgc";
 import { getDictionary } from "@/lib/i18n/server";
 import { getLocale } from "@/lib/i18n/server";
 import { captionHeadline } from "@/lib/instagram-api";
-import { getInstagramPostPool } from "@/lib/instagram";
+import { getInstagramPostPool, getUgcVideos } from "@/lib/instagram";
 import { getMediaKitStats, getPostMetrics } from "@/lib/instagram-stats";
 import { selectTopPosts } from "@/lib/instagram-stats-api";
 import {
@@ -29,12 +31,13 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function MediaKitPage() {
-  const [dict, locale, stats, metrics, posts] = await Promise.all([
+  const [dict, locale, stats, metrics, posts, ugc] = await Promise.all([
     getDictionary(),
     getLocale(),
     getMediaKitStats(),
     getPostMetrics(),
     getInstagramPostPool(),
+    getUgcVideos(),
   ]);
 
   const { mediaKit } = dict;
@@ -114,15 +117,12 @@ export default async function MediaKitPage() {
                     rel="noopener noreferrer"
                     className="flex flex-col overflow-hidden rounded-card bg-white shadow-card transition-transform hover:-translate-y-1"
                   >
-                    <div className="relative aspect-[4/5] w-full">
-                      <Image
-                        src={`/api/instagram/${post.id}`}
-                        alt={title}
-                        fill
-                        sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-                        className="object-cover"
-                      />
-                    </div>
+                    <InstagramImage
+                      id={post.id}
+                      title={title}
+                      sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                      className="aspect-[4/5]"
+                    />
                     <div className="flex flex-1 flex-col justify-between gap-4 p-7">
                       <p className="line-clamp-2 font-display text-[17px] font-bold leading-[1.3]">
                         {title}
@@ -183,7 +183,11 @@ export default async function MediaKitPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-[1000px] px-[6%] pb-[90px]">
+      {ugc ? <MediaKitUgc videos={ugc} dict={mediaKit.ugc} /> : null}
+
+      <section
+        className={`mx-auto max-w-[1000px] px-[6%] pb-[90px] ${ugc ? "pt-[90px]" : ""}`}
+      >
         <h2 className="mb-3 font-display text-[clamp(24px,3vw,34px)] font-extrabold leading-[1.15]">
           {mediaKit.brands.title}
         </h2>

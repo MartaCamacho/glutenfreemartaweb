@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import { after, before, describe, it } from "node:test";
 import {
   captionHeadline,
+  loadInstagramMedia,
   loadInstagramPosts,
   normalisePost,
   pickImageUrl,
@@ -276,6 +277,116 @@ describe("loadInstagramPosts", () => {
     const unusable = respondWith({ data: [{ ...REEL, thumbnail_url: undefined }] });
     assert.equal(
       await loadInstagramPosts({ ...OPTIONS, token: "tok", fetchImpl: unusable.fetchImpl }),
+      null,
+    );
+  });
+});
+
+describe("loadInstagramMedia", () => {
+  const OPTIONS = {
+    apiBase: "https://graph.instagram.com/v23.0",
+    revalidateSeconds: 3600,
+  };
+
+  const realWarn = console.warn;
+  before(() => {
+    console.warn = () => {};
+  });
+  after(() => {
+    console.warn = realWarn;
+  });
+
+  /** Answers per media id; an id with no entry gets a 404. */
+  function respondById(byId: Record<string, unknown>) {
+    const calls: string[] = [];
+    const fetchImpl = (async (url: string) => {
+      calls.push(String(url));
+      const id = new URL(String(url)).pathname.split("/").pop() ?? "";
+      const body = byId[id];
+      return {
+        ok: body !== undefined,
+        status: body !== undefined ? 200 : 404,
+        statusText: body !== undefined ? "OK" : "Not Found",
+        json: async () => body,
+      };
+    }) as unknown as typeof fetch;
+
+    return { fetchImpl, calls };
+  }
+
+  it("fetches each post by id and keeps the order asked", async () => {
+    const { fetchImpl, calls } = respondById({ "1": IMAGE, "2": REEL });
+    const media = await loadInstagramMedia({
+      ...OPTIONS,
+      token: "tok",
+      ids: ["2", "1"],
+      fetchImpl,
+    });
+
+    assert.deepEqual(media?.map((post) => post.id), ["2", "1"]);
+    assert.ok(calls.some((url) => url.startsWith(`${OPTIONS.apiBase}/2?fields=`)));
+    assert.ok(calls.every((url) => url.includes("access_token=tok")));
+  });
+
+  it("exposes the video file for a reel, and nothing for a photo", async () => {
+    const { fetchImpl } = respondById({ "1": IMAGE, "2": REEL });
+    const media = await loadInstagramMedia({
+      ...OPTIONS,
+      token: "tok",
+      ids: ["1", "2"],
+      fetchImpl,
+    });
+
+    assert.equal(media?.[0].videoUrl, null);
+    assert.equal(media?.[1].videoUrl, "https://cdn/reel.mp4");
+    assert.equal(media?.[1].imageUrl, "https://cdn/reel.jpg");
+  });
+
+  it("keeps a reel whose file Meta withholds, without a video", async () => {
+    const { fetchImpl } = respondById({ "2": { ...REEL, media_url: undefined } });
+    const media = await loadInstagramMedia({
+      ...OPTIONS,
+      token: "tok",
+      ids: ["2"],
+      fetchImpl,
+    });
+
+    assert.equal(media?.length, 1);
+    assert.equal(media?.[0].videoUrl, null);
+  });
+
+  it("drops a post that fails and returns the rest", async () => {
+    const { fetchImpl } = respondById({ "2": REEL });
+    const media = await loadInstagramMedia({
+      ...OPTIONS,
+      token: "tok",
+      ids: ["deleted", "2"],
+      fetchImpl,
+    });
+
+    assert.deepEqual(media?.map((post) => post.id), ["2"]);
+  });
+
+  it("never calls the API without a token", async () => {
+    const { fetchImpl, calls } = respondById({ "2": REEL });
+    const media = await loadInstagramMedia({
+      ...OPTIONS,
+      token: undefined,
+      ids: ["2"],
+      fetchImpl,
+    });
+
+    assert.equal(media, null);
+    assert.equal(calls.length, 0);
+  });
+
+  it("returns null rather than throwing when every request fails", async () => {
+    const fetchImpl = (async () => {
+      throw new Error("ECONNREFUSED");
+    }) as unknown as typeof fetch;
+
+    assert.equal(
+      await loadInstagramMedia({ ...OPTIONS, token: "tok", ids: ["1", "2"], fetchImpl }),
       null,
     );
   });
